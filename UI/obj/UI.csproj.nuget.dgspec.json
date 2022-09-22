@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\UI\\UI.csproj": {}
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\UI\\UI.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\UI\\UI.csproj",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\UI\\obj\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
