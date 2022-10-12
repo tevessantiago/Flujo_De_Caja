@@ -1,7 +1,7 @@
 ﻿namespace BLL
 {
-    public class Class1
+    public class CajaLogic
     {
-        if();
+        //if();
     }
 }

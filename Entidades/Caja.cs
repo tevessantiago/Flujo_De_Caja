@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class Caja
+    public class Caja
     {
+        public int Caja_Id { get; set; }
+        public int Movimiento_Id { get; set; }
+        public double Caja_Total { get; set; }
     }
 }

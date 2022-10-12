@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    internal class MovimientoLogic
+    public class MovimientoLogic
     {
+
     }
 }
