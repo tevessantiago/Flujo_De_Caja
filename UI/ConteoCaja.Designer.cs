@@ -129,7 +129,10 @@
             // 
             // gridCaja
             // 
+            this.gridCaja.AllowUserToAddRows = false;
             this.gridCaja.AllowUserToDeleteRows = false;
+            this.gridCaja.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gridCaja.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCaja.Location = new System.Drawing.Point(46, 304);
             this.gridCaja.Name = "gridCaja";
@@ -146,6 +149,7 @@
             this.btnCargar.TabIndex = 6;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
             // btnEditar
             // 
