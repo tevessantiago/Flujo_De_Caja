@@ -67,5 +67,10 @@ namespace UI
 
             }
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0); //Emma: Salida del programa
+        }
     }
 }
