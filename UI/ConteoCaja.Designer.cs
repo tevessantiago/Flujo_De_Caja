@@ -105,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(242, 19);
+            this.label1.Location = new System.Drawing.Point(339, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(381, 32);
             this.label1.TabIndex = 1;
@@ -134,7 +134,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 182);
+            this.label4.Location = new System.Drawing.Point(26, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 15);
             this.label4.TabIndex = 4;
@@ -147,18 +147,18 @@
             this.gridCaja.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gridCaja.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gridCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridCaja.Location = new System.Drawing.Point(46, 304);
+            this.gridCaja.Location = new System.Drawing.Point(12, 347);
             this.gridCaja.Name = "gridCaja";
             this.gridCaja.ReadOnly = true;
             this.gridCaja.RowTemplate.Height = 25;
-            this.gridCaja.Size = new System.Drawing.Size(721, 227);
+            this.gridCaja.Size = new System.Drawing.Size(1000, 332);
             this.gridCaja.TabIndex = 5;
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(140, 244);
+            this.btnCargar.Location = new System.Drawing.Point(417, 76);
             this.btnCargar.Name = "btnCargar";
-            this.btnCargar.Size = new System.Drawing.Size(91, 36);
+            this.btnCargar.Size = new System.Drawing.Size(153, 36);
             this.btnCargar.TabIndex = 6;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
@@ -166,18 +166,18 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(359, 244);
+            this.btnEditar.Location = new System.Drawing.Point(417, 124);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(87, 36);
+            this.btnEditar.Size = new System.Drawing.Size(153, 36);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(609, 244);
+            this.btnEliminar.Location = new System.Drawing.Point(417, 171);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(87, 36);
+            this.btnEliminar.Size = new System.Drawing.Size(153, 36);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -212,16 +212,16 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(482, 76);
+            this.richTextBox1.Location = new System.Drawing.Point(140, 220);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(285, 121);
+            this.richTextBox1.Size = new System.Drawing.Size(430, 121);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(390, 84);
+            this.label5.Location = new System.Drawing.Point(26, 270);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 15);
             this.label5.TabIndex = 15;
@@ -233,7 +233,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(842, 546);
+            this.ClientSize = new System.Drawing.Size(1024, 700);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.richTextBox1);
@@ -253,6 +253,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ConteoCaja";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.ConteoCaja_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

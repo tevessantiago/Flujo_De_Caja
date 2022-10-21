@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Entidades;
+using System.Runtime.InteropServices;
 
 namespace UI
 {
@@ -10,8 +11,11 @@ namespace UI
         public ConteoCaja()
         {
             InitializeComponent();
+
+            
         }
 
+       
         private void ConteoCaja_Load(object sender, EventArgs e)
         {
             try
