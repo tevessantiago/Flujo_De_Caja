@@ -46,17 +46,22 @@
             this.comboProveedor = new System.Windows.Forms.ComboBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCaja)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.herramientasToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.herramientasToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(-5, 2);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(139, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,12 +97,13 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(297, 24);
+            this.label1.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(242, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 25);
+            this.label1.Size = new System.Drawing.Size(381, 32);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Conteo de Caja Diario";
+            this.label1.Text = "CONTROL DE CAJA DIARIO";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
             // 
@@ -214,11 +220,20 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Comentario";
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // ConteoCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(842, 546);
+            this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.comboProveedor);
@@ -233,9 +248,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ConteoCaja";
-            this.Text = "ConteoCaja";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.ConteoCaja_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -265,5 +281,6 @@
         private ComboBox comboProveedor;
         private RichTextBox richTextBox1;
         private Label label5;
+        private ToolStripMenuItem salirToolStripMenuItem;
     }
 }
