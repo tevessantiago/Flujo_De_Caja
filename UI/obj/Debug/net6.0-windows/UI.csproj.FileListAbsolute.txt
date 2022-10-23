@@ -63,3 +63,4 @@ C:\Users\Seidor\Documents\GitHub\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\UI.pd
 C:\Users\Seidor\Documents\GitHub\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\Seidor\Documents\GitHub\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\ref\UI.dll
 C:\Users\Seidor\Documents\GitHub\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\UI.FormProveedor.resources
+C:\Users\Seidor\Documents\GitHub\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\UI.FormPersona.resources

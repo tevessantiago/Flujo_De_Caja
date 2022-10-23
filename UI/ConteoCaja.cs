@@ -122,5 +122,20 @@ namespace UI
             }
 
         }
+
+        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Emmanuel: Generar instancia de Form Proveedor y mostrarlo si corresponde.
+
+            if ((Application.OpenForms["FormPersona"] as FormPersona) != null)
+            {
+                MessageBox.Show("La ventana de Persona ya se encuentra abierta.");
+            }
+            else
+            {
+                FormPersona formPersona = new FormPersona();
+                formPersona.Show();
+            }
+        }
     }
 }
