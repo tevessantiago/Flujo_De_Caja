@@ -8,6 +8,12 @@ namespace UI
     {
         MovimientoLogic movLogic = new MovimientoLogic();
 
+
+        //Emmanuel: Variables para mover el formulario
+        int mov;
+        int movX;
+        int movY;
+
         public ConteoCaja()
         {
             InitializeComponent();
@@ -15,9 +21,10 @@ namespace UI
             
         }
 
-       
+        
         private void ConteoCaja_Load(object sender, EventArgs e)
         {
+
             try
             {
                 gridCaja.DataSource = movLogic.ObtenerMovimientos();
@@ -75,6 +82,29 @@ namespace UI
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0); //Emma: Salida del programa
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Emmanuel: Asignación de valores en las variables de movimiento de Mouse
+            mov = 1;
+            movX = e.X;
+            movY = e.Y;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Emmanuel: Validación de valores aplicados en el movimiento de Mouse
+            if (mov == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - movX, MousePosition.Y - movY);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            //Emmanuel: Asignación de valor de movimiento a 0
+            mov = 0;
         }
     }
 }
