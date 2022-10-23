@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace UI
 {
@@ -66,12 +67,22 @@ namespace UI
             {
                 Persona persona = new Persona();
 
-                persona.Persona_Nombre = txtNombre.Text;
-                persona.Persona_Apellido = txtApellido.Text;
-                persona.Persona_Tipo = txtTipo.Text;
+                persona.Persona_Nombre = txtNombre.Text; //Emmanuel: Asignación del nombre de la persona
+                persona.Persona_Apellido = txtApellido.Text; //Emmanuel: Asignación del apellido de la persona
+                persona.Persona_Tipo = txtTipo.Text; //Emmanuel: Asignación del Tipo de la persona
+                if (cbBajaPersona.Checked) //Emmanuel: Validación de si la Persona  es Nueva o se la da de BAJA
+                {
+                    persona.Persona_Estado = "BAJA";
+                }
+                else
+                {
+                    persona.Persona_Estado = "ALTA";
+                }
 
                 perLogic.CargarPersona(persona);
                 gridPersona.DataSource = perLogic.ObtenerPersonas();
+
+                
             }
             catch (Exception ex)
             {
@@ -81,6 +92,16 @@ namespace UI
             {
 
             }
+        }
+
+        private void personaLogicBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridPersona_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

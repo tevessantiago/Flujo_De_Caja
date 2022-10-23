@@ -23,7 +23,7 @@ namespace DAL
 
                         miComando.Parameters.AddWithValue("@PERSONA_NOMBRE", persona.Persona_Nombre);
                         miComando.Parameters.AddWithValue("@PERSONA_APELLIDO", persona.Persona_Apellido);
-                        miComando.Parameters.AddWithValue("@PERONA_TIPO", persona.Persona_Tipo);
+                        miComando.Parameters.AddWithValue("@PERSONA_TIPO", persona.Persona_Tipo);
                         miComando.Parameters.AddWithValue("@PERSONA_ESTADO", persona.Persona_Estado);
 
                         miComando.ExecuteNonQuery();

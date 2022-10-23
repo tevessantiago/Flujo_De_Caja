@@ -162,18 +162,18 @@
             // 
             // gridPersona
             // 
-            this.gridPersona.AutoGenerateColumns = false;
             this.gridPersona.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridPersona.DataSource = this.personaLogicBindingSource;
             this.gridPersona.Location = new System.Drawing.Point(12, 213);
             this.gridPersona.Name = "gridPersona";
             this.gridPersona.RowTemplate.Height = 25;
             this.gridPersona.Size = new System.Drawing.Size(320, 196);
             this.gridPersona.TabIndex = 10;
+            this.gridPersona.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPersona_CellContentClick);
             // 
             // personaLogicBindingSource
             // 
             this.personaLogicBindingSource.DataSource = typeof(BLL.PersonaLogic);
+            this.personaLogicBindingSource.CurrentChanged += new System.EventHandler(this.personaLogicBindingSource_CurrentChanged);
             // 
             // btnBorrar
             // 

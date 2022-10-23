@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +14,21 @@ namespace UI
 {
     public partial class FormProveedor : Form
     {
-        public FormProveedor()
-        {
-            InitializeComponent();
-        }
+        ProveedorLogic provLogic = new ProveedorLogic();
 
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
         int movY;
 
+        public FormProveedor()
+        {
+            InitializeComponent();
+        }
+
         private void FormProveedor_Load(object sender, EventArgs e)
         {
-            this.TopMost = true;
+            this.TopLevel = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -58,6 +62,35 @@ namespace UI
         {
             //Emmanuel: Asignación de valor de movimiento a 0
             mov = 0;
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Proveedor proveedor = new Proveedor();
+
+                proveedor.Proveedor_Nombre = txtNombre.Text;
+                proveedor.Proveedor_Rubro = txtRubro.Text;
+                proveedor.Proveedor_Fecha_Alta = DateTime.Today;
+                if (cbBajaProveedor.Checked)
+                {
+                    proveedor.Proveedor_Fecha_Baja = DateTime.Today;
+                }
+                else
+                {
+                    proveedor.Proveedor_Fecha_Baja = DateTime.Parse("31/12/9999");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
         }
     }
 }
