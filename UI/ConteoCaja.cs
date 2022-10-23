@@ -106,5 +106,21 @@ namespace UI
             //Emmanuel: Asignación de valor de movimiento a 0
             mov = 0;
         }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Emmanuel: Generar instancia de Form Proveedor y mostrarlo si corresponde.
+            
+            if ((Application.OpenForms["FormProveedor"] as FormProveedor) != null)
+            {
+                MessageBox.Show("La ventana de Proveedor ya se encuentra abierta.");
+            }
+            else
+            {
+                FormProveedor formProveedor = new FormProveedor();
+                formProveedor.Show();
+            }
+
+        }
     }
 }
