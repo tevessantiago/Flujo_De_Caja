@@ -8,7 +8,6 @@ namespace UI
     {
         MovimientoLogic movLogic = new MovimientoLogic();
 
-
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
@@ -17,8 +16,6 @@ namespace UI
         public ConteoCaja()
         {
             InitializeComponent();
-
-            
         }
 
         

@@ -41,13 +41,13 @@
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridPersona = new System.Windows.Forms.DataGridView();
             this.personaLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersona)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaLogicBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,9 +57,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(122, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 37);
+            this.label1.Size = new System.Drawing.Size(141, 37);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Persona";
+            this.label1.Text = "PERSONA";
             // 
             // panel1
             // 
@@ -158,17 +158,18 @@
             this.btnCargar.TabIndex = 9;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
+            this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // dataGridView1
+            // gridPersona
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.personaLogicBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 213);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(320, 196);
-            this.dataGridView1.TabIndex = 10;
+            this.gridPersona.AutoGenerateColumns = false;
+            this.gridPersona.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridPersona.DataSource = this.personaLogicBindingSource;
+            this.gridPersona.Location = new System.Drawing.Point(12, 213);
+            this.gridPersona.Name = "gridPersona";
+            this.gridPersona.RowTemplate.Height = 25;
+            this.gridPersona.Size = new System.Drawing.Size(320, 196);
+            this.gridPersona.TabIndex = 10;
             // 
             // personaLogicBindingSource
             // 
@@ -200,7 +201,7 @@
             this.ClientSize = new System.Drawing.Size(344, 450);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridPersona);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.txtApellido);
@@ -219,7 +220,7 @@
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPersona)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personaLogicBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,7 +241,7 @@
         private TextBox txtApellido;
         private TextBox txtTipo;
         private Button btnCargar;
-        private DataGridView dataGridView1;
+        private DataGridView gridPersona;
         private BindingSource personaLogicBindingSource;
         private Button btnBorrar;
         private Button btnModificar;

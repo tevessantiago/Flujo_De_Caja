@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Entidades;
+using BLL;
+using System.Runtime.InteropServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +14,18 @@ using System.Windows.Forms;
 namespace UI
 {
     public partial class FormPersona : Form
-    {
-        public FormPersona()
-        {
-            InitializeComponent();
-        }
+    { 
+        PersonaLogic perLogic = new PersonaLogic();
 
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
         int movY;
+
+        public FormPersona()
+        {
+            InitializeComponent();
+        }
 
         private void FormPersona_Load(object sender, EventArgs e)
         {
@@ -53,6 +58,29 @@ namespace UI
         {
             //Emmanuel: Asignación de valor de movimiento a 0
             mov = 0;
+        }
+
+        private void btnCargar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Persona persona = new Persona();
+
+                persona.Persona_Nombre = txtNombre.Text;
+                persona.Persona_Apellido = txtApellido.Text;
+                persona.Persona_Tipo = txtTipo.Text;
+
+                perLogic.CargarPersona(persona);
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+
+            }
         }
     }
 }
