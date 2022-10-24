@@ -81,6 +81,8 @@ namespace UI
                 {
                     proveedor.Proveedor_Fecha_Baja = DateTime.Parse("31/12/9999");
                 }
+                provLogic.CargarProveedor(proveedor);
+                gridProveedor.DataSource = provLogic.ObtenerProveedores();
 
             }
             catch (Exception ex)

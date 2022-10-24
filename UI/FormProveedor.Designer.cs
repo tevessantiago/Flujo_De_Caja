@@ -39,13 +39,13 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtRubro = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gridProveedor = new System.Windows.Forms.DataGridView();
             this.proveedorLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorLogicBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,16 +142,16 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // dataGridView1
+            // gridProveedor
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.DataSource = this.proveedorLogicBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 196);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(322, 208);
-            this.dataGridView1.TabIndex = 9;
+            this.gridProveedor.AutoGenerateColumns = false;
+            this.gridProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridProveedor.DataSource = this.proveedorLogicBindingSource;
+            this.gridProveedor.Location = new System.Drawing.Point(10, 196);
+            this.gridProveedor.Name = "gridProveedor";
+            this.gridProveedor.RowTemplate.Height = 25;
+            this.gridProveedor.Size = new System.Drawing.Size(322, 208);
+            this.gridProveedor.TabIndex = 9;
             // 
             // proveedorLogicBindingSource
             // 
@@ -184,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(344, 450);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.gridProveedor);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.txtRubro);
             this.Controls.Add(this.txtNombre);
@@ -201,7 +201,7 @@
             this.menuStrip1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorLogicBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -220,7 +220,7 @@
         private TextBox txtNombre;
         private TextBox txtRubro;
         private Button btnCargar;
-        private DataGridView dataGridView1;
+        private DataGridView gridProveedor;
         private BindingSource proveedorLogicBindingSource;
         private Button btnModificar;
         private Button btnBorrar;
