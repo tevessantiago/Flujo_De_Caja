@@ -7,6 +7,7 @@ namespace UI
     public partial class ConteoCaja : Form
     {
         MovimientoLogic movLogic = new MovimientoLogic();
+        CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
 
         //Emmanuel: Variables para mover el formulario
         int mov;
@@ -24,7 +25,7 @@ namespace UI
 
             try
             {
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
             }
             catch (Exception ex)
             {
@@ -63,7 +64,7 @@ namespace UI
                 movimiento.Movimiento_Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
 
                 movLogic.CargarMovimiento(movimiento);
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
 
             }
             catch (Exception ex)

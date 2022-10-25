@@ -8,7 +8,7 @@ namespace DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["ConexionKiosko"].ConnectionString;
 
-        public void CargarMovimiento(Movimiento movimiento)
+        public int CargarMovimiento(Movimiento movimiento)
         {
             try
             {
@@ -18,7 +18,8 @@ namespace DAL
 
                     using (var miComando = new SqlCommand(
                         "INSERT INTO MOVIMIENTO (PERSONA_ID, PROVEEDOR_ID, MOVIMIENTO_TIPO, IMPORTE, MOVIMIENTO_FECHA_CREACION, MOVIMIENTO_FECHA_ACT, MOVIMIENTO_COMENTARIO)" +
-                        " VALUES (@PERSONA_ID, @PROVEEDOR_ID, @MOVIMIENTO_TIPO, @IMPORTE, @MOVIMIENTO_FECHA_CREACION, @MOVIMIENTO_FECHA_ACT, @MOVIMIENTO_COMENTARIO);", miConexion))
+                        " VALUES (@PERSONA_ID, @PROVEEDOR_ID, @MOVIMIENTO_TIPO, @IMPORTE, @MOVIMIENTO_FECHA_CREACION, @MOVIMIENTO_FECHA_ACT, @MOVIMIENTO_COMENTARIO);" +
+                        " SELECT CAST(scope_identity() AS int);", miConexion))
                     {
                         miComando.CommandType = System.Data.CommandType.Text;
 
@@ -30,7 +31,7 @@ namespace DAL
                         miComando.Parameters.AddWithValue("@MOVIMIENTO_FECHA_ACT", movimiento.Movimiento_Fecha_Act);
                         miComando.Parameters.AddWithValue("@MOVIMIENTO_COMENTARIO", movimiento.Movimiento_Comentario);
 
-                        miComando.ExecuteNonQuery();
+                        return (int)miComando.ExecuteScalar();
                     }
                     miConexion.Close();
                 }
@@ -39,11 +40,6 @@ namespace DAL
             {
                 throw new Exception("Error con la conexion a la BD: " + ex.Message);
             }
-            finally
-            {
-               
-            }
-            
         }
 
         public List<Movimiento> ObtenerMovimientos()

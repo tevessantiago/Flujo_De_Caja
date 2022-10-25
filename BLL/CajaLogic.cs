@@ -1,7 +1,15 @@
-﻿namespace BLL
+﻿using DAL;
+using Entidades;
+
+namespace BLL
 {
     public class CajaLogic
     {
-        //if();
+        CajaDao dao = new CajaDao();
+
+        public void CargarCaja(Caja caja)
+        {
+            dao.CargarCaja(caja);
+        }
     }
 }

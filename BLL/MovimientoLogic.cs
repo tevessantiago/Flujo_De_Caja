@@ -6,9 +6,15 @@ namespace BLL
     public class MovimientoLogic
     {
         MovimientoDao dao = new MovimientoDao();
+        CajaLogic cajaLogic = new CajaLogic();
         public void CargarMovimiento(Movimiento movimiento)
         {
-            dao.CargarMovimiento(movimiento);
+            Caja caja = new Caja();
+
+            int movimientoID = dao.CargarMovimiento(movimiento);
+            caja.Movimiento_Id = movimientoID;
+            caja.Caja_Total = movimiento.Importe;
+            cajaLogic.CargarCaja(caja);
         }
 
         public List<Movimiento> ObtenerMovimientos()
