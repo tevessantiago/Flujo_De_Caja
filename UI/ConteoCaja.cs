@@ -8,6 +8,7 @@ namespace UI
     {
         MovimientoLogic movLogic = new MovimientoLogic();
         CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
+        ProveedorLogic provLogic = new ProveedorLogic();
 
         //Emmanuel: Variables para mover el formulario
         int mov;
@@ -26,6 +27,9 @@ namespace UI
             try
             {
                 gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
+                comboProveedor.DataSource = provLogic.ObtenerProveedores();
+                comboProveedor.DisplayMember = "PROVEEDOR_NOMBRE";
+                comboProveedor.ValueMember = "PROVEEDOR_ID";
             }
             catch (Exception ex)
             {
@@ -56,7 +60,7 @@ namespace UI
                 Movimiento movimiento = new Movimiento();
 
                 movimiento.Persona_Id = 1; //Santi: Hay que determinar de dónde sale este valor.
-                movimiento.Proveedor_Id = 1; //Santi: Esto debería salir del combobox de Proveedor.
+                movimiento.Proveedor_Id = (int)comboProveedor.SelectedIndex; //Fran deberiamos acomodar la matriz.
                 movimiento.Movimiento_Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
                 movimiento.Movimiento_Fecha_Creacion = DateTime.Now.Date; //Santi: Esto se puede hacer directamente desde la clase Movimiento.
