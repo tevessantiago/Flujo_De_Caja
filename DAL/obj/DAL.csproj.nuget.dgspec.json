@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Facultad\\TP2\\Flujo_De_Caja\\DAL\\DAL.csproj": {}
+    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "D:\\Facultad\\TP2\\Flujo_De_Caja\\DAL\\DAL.csproj": {
+    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultad\\TP2\\Flujo_De_Caja\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\Facultad\\TP2\\Flujo_De_Caja\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\GuzmanFrancoGabrie\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultad\\TP2\\Flujo_De_Caja\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\garev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\GuzmanFrancoGabrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\garev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\Entidades.csproj": {
-                "projectPath": "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\Entidades.csproj"
+              "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -63,7 +63,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -72,24 +73,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\GuzmanFrancoGabrie\\.nuget\\packages\\",
-        "outputPath": "D:\\Facultad\\TP2\\Flujo_De_Caja\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\garev\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\GuzmanFrancoGabrie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\garev\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -121,7 +122,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -130,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
