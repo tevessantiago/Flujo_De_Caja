@@ -22,9 +22,8 @@ namespace DAL
                 miConexion.Open();
 
                 using (var miComando = new SqlCommand(
-                    "SELECT MOVIMIENTO.MOVIMIENTO_FECHA_ACT AS FECHA, PROVEEDOR.PROVEEDOR_RUBRO AS RUBRO, MOVIMIENTO.MOVIMIENTO_TIPO AS TIPO, MOVIMIENTO.IMPORTE AS IMPORTE, CAJA.CAJA_TOTAL AS TOTAL, PERSONA.PERSONA_NOMBRE AS NOMBRE " +
-                    "FROM MOVIMIENTO " +
-                    "INNER JOIN PROVEEDOR ON PROVEEDOR.PROVEEDOR_ID = MOVIMIENTO.PROVEEDOR_ID " +
+                    "SELECT MOVIMIENTO.MOVIMIENTO_FECHA_ACT AS FECHA, MOVIMIENTO.MOVIMIENTO_TIPO AS TIPO, MOVIMIENTO.IMPORTE AS IMPORTE, CAJA.CAJA_TOTAL AS TOTAL, PERSONA.PERSONA_NOMBRE AS NOMBRE " +
+                    "FROM MOVIMIENTO " +                    
                     "INNER JOIN CAJA ON CAJA.MOVIMIENTO_ID = MOVIMIENTO.MOVIMIENTO_ID " +
                     "INNER JOIN PERSONA ON PERSONA.PERSONA_ID = MOVIMIENTO.PERSONA_ID " +
                     "ORDER BY MOVIMIENTO_FECHA_ACT DESC;", miConexion))
@@ -40,7 +39,6 @@ namespace DAL
                                 cierreDiario.Add(new CierreDiario
                                 {
                                     Fecha = DateTime.Parse(reader["FECHA"].ToString()),
-                                    Rubro = reader["RUBRO"].ToString(),
                                     Tipo = reader["TIPO"].ToString(),
                                     Importe = double.Parse(reader["IMPORTE"].ToString()),
                                     Total= double.Parse(reader["TOTAL"].ToString()),

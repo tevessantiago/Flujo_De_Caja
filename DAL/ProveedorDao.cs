@@ -25,7 +25,7 @@ namespace DAL
                         miComando.Parameters.AddWithValue("@PROVEEDOR_NOMBRE", proveedor.Proveedor_Nombre);
                         miComando.Parameters.AddWithValue("@PROVEEDOR_RUBRO", proveedor.Proveedor_Rubro);
                         miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_ALTA", proveedor.Proveedor_Fecha_Alta);
-                        miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_BAJA", proveedor.Proveedor_Fecha_Baja);
+                        miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_BAJA", (proveedor.Proveedor_Fecha_Baja.HasValue) ? proveedor.Proveedor_Fecha_Baja : DBNull.Value);                        
 
                         miComando.ExecuteNonQuery();
                     }
@@ -52,7 +52,7 @@ namespace DAL
                 miConexion.Open();
 
                 using (var miComando = new SqlCommand(
-                    "SELECT * FROM [KIOSKO].[dbo].[PROVEEDOR];", miConexion))
+                    "SELECT * FROM PROVEEDOR;", miConexion))
                 {
                     miComando.CommandType = System.Data.CommandType.Text;
 
@@ -64,13 +64,11 @@ namespace DAL
                             {
                                 proveedores.Add(new Proveedor
                                 {
-                                    Proveedor_Id = int.Parse(reader[ "PROVEEDOR_ID"].ToString()),
+                                    Proveedor_Id = int.Parse(reader["PROVEEDOR_ID"].ToString()),
                                     Proveedor_Nombre = reader["PROVEEDOR_NOMBRE"].ToString(),
                                     Proveedor_Rubro = reader["PROVEEDOR_RUBRO"].ToString(),
                                     Proveedor_Fecha_Alta = (DateTime)reader["PROVEEDOR_FECHA_ALTA"],
-                                    Proveedor_Fecha_Baja = (DateTime)reader["PROVEEDOR_FECHA_BAJA"]
-
-
+                                    Proveedor_Fecha_Baja = (DateTime.TryParse(reader["PROVEEDOR_FECHA_BAJA"].ToString(), out DateTime fechaBaja)) ? fechaBaja : null,
                                 });
                             }
                         }

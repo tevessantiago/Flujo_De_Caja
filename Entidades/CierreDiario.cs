@@ -8,8 +8,7 @@ namespace Entidades
 {
     public class CierreDiario
     {
-        public DateTime Fecha { get; set; }
-        public string Rubro { get; set; }
+        public DateTime Fecha { get; set; }        
         public string Tipo { get; set; }
         public double Importe { get; set; }
         public double Total { get; set; }
