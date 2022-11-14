@@ -67,16 +67,16 @@ namespace UI
             {
                 Persona persona = new Persona();
 
-                persona.Persona_Nombre = txtNombre.Text; //Emmanuel: Asignación del nombre de la persona
-                persona.Persona_Apellido = txtApellido.Text; //Emmanuel: Asignación del apellido de la persona
-                persona.Persona_Tipo = txtTipo.Text; //Emmanuel: Asignación del Tipo de la persona
+                persona.Nombre = txtNombre.Text; //Emmanuel: Asignación del nombre de la persona
+                persona.Apellido = txtApellido.Text; //Emmanuel: Asignación del apellido de la persona
+                persona.Tipo = txtTipo.Text; //Emmanuel: Asignación del Tipo de la persona
                 if (cbBajaPersona.Checked) //Emmanuel: Validación de si la Persona  es Nueva o se la da de BAJA
                 {
-                    persona.Persona_Estado = "BAJA";
+                    persona.Estado = "BAJA";
                 }
                 else
                 {
-                    persona.Persona_Estado = "ALTA";
+                    persona.Estado = "ALTA";
                 }
 
                 perLogic.CargarPersona(persona);

@@ -70,16 +70,16 @@ namespace UI
             {
                 Proveedor proveedor = new Proveedor();
 
-                proveedor.Proveedor_Nombre = txtNombre.Text;
-                proveedor.Proveedor_Rubro = txtRubro.Text;
-                proveedor.Proveedor_Fecha_Alta = DateTime.Today;
+                proveedor.Nombre = txtNombre.Text;
+                proveedor.Rubro = txtRubro.Text;
+                proveedor.FechaAlta = DateTime.Today;
                 if (cbBajaProveedor.Checked)
                 {
-                    proveedor.Proveedor_Fecha_Baja = DateTime.Today;
+                    proveedor.FechaBaja = DateTime.Today;
                 }
                 else
                 {
-                    proveedor.Proveedor_Fecha_Baja = null;
+                    proveedor.FechaBaja = null;
                 }
                 provLogic.CargarProveedor(proveedor);
                 gridProveedor.DataSource = provLogic.ObtenerProveedores();

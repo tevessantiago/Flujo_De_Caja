@@ -2,10 +2,10 @@
 {
     public class Persona
     {
-        public int Persona_Id { get; set; }
-        public string Persona_Nombre { get; set; }
-        public string Persona_Apellido { get; set; }
-        public string Persona_Tipo { get; set; }
-        public string Persona_Estado { get; set; }
+        public int PersonaId { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string Tipo { get; set; }
+        public string Estado { get; set; }
     }
 }

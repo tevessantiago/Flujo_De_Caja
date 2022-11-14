@@ -10,36 +10,24 @@ namespace DAL
 
         public void CargarProveedor(Proveedor proveedor)
         {
-            try
+            using (var miConexion = new SqlConnection(connectionString))
             {
-                using (var miConexion = new SqlConnection(connectionString))
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                    "INSERT INTO PROVEEDOR (PROVEEDOR_NOMBRE, PROVEEDOR_RUBRO, PROVEEDOR_FECHA_ALTA, PROVEEDOR_FECHA_BAJA)" +
+                    "VALUES (@PROVEEDOR_NOMBRE, @PROVEEDOR_RUBRO, @PROVEEDOR_FECHA_ALTA, @PROVEEDOR_FECHA_BAJA);", miConexion))
                 {
-                    miConexion.Open();
+                    miComando.CommandType = System.Data.CommandType.Text;
 
-                    using (var miComando = new SqlCommand(
-                        "INSERT INTO PROVEEDOR (PROVEEDOR_NOMBRE, PROVEEDOR_RUBRO, PROVEEDOR_FECHA_ALTA, PROVEEDOR_FECHA_BAJA)" +
-                        "VALUES (@PROVEEDOR_NOMBRE, @PROVEEDOR_RUBRO, @PROVEEDOR_FECHA_ALTA, @PROVEEDOR_FECHA_BAJA);", miConexion))
-                    {
-                        miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_NOMBRE", proveedor.Nombre);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_RUBRO", proveedor.Rubro);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_ALTA", proveedor.FechaAlta);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_BAJA", (proveedor.FechaBaja.HasValue) ? proveedor.FechaBaja : DBNull.Value);
 
-                        miComando.Parameters.AddWithValue("@PROVEEDOR_NOMBRE", proveedor.Proveedor_Nombre);
-                        miComando.Parameters.AddWithValue("@PROVEEDOR_RUBRO", proveedor.Proveedor_Rubro);
-                        miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_ALTA", proveedor.Proveedor_Fecha_Alta);
-                        miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_BAJA", (proveedor.Proveedor_Fecha_Baja.HasValue) ? proveedor.Proveedor_Fecha_Baja : DBNull.Value);                        
-
-                        miComando.ExecuteNonQuery();
-                    }
-                    miConexion.Close();
+                    miComando.ExecuteNonQuery();
                 }
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error con la conexion a la BD: " + ex.Message);
-            }
-            finally
-            {
-
+                miConexion.Close();
             }
         }
 
@@ -64,11 +52,11 @@ namespace DAL
                             {
                                 proveedores.Add(new Proveedor
                                 {
-                                    Proveedor_Id = int.Parse(reader["PROVEEDOR_ID"].ToString()),
-                                    Proveedor_Nombre = reader["PROVEEDOR_NOMBRE"].ToString(),
-                                    Proveedor_Rubro = reader["PROVEEDOR_RUBRO"].ToString(),
-                                    Proveedor_Fecha_Alta = (DateTime)reader["PROVEEDOR_FECHA_ALTA"],
-                                    Proveedor_Fecha_Baja = (DateTime.TryParse(reader["PROVEEDOR_FECHA_BAJA"].ToString(), out DateTime fechaBaja)) ? fechaBaja : null,
+                                    ProveedorId = int.Parse(reader["PROVEEDOR_ID"].ToString()),
+                                    Nombre = reader["PROVEEDOR_NOMBRE"].ToString(),
+                                    Rubro = reader["PROVEEDOR_RUBRO"].ToString(),
+                                    FechaAlta = (DateTime)reader["PROVEEDOR_FECHA_ALTA"],
+                                    FechaBaja = (DateTime.TryParse(reader["PROVEEDOR_FECHA_BAJA"].ToString(), out DateTime fechaBaja)) ? fechaBaja : null,
                                 });
                             }
                         }

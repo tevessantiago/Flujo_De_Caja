@@ -28,8 +28,8 @@ namespace UI
             {
                 gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
                 comboProveedor.DataSource = provLogic.ObtenerProveedores();
-                comboProveedor.DisplayMember = "PROVEEDOR_NOMBRE";
-                comboProveedor.ValueMember = "PROVEEDOR_ID";
+                comboProveedor.DisplayMember = "Nombre";
+                comboProveedor.ValueMember = "ProveedorId";
             }
             catch (Exception ex)
             {
@@ -59,13 +59,13 @@ namespace UI
 
                 Movimiento movimiento = new Movimiento();
 
-                movimiento.Persona_Id = 1; //Santi: Hay que determinar de dónde sale este valor.
-                movimiento.Proveedor_Id = (int)comboProveedor.SelectedIndex; //Fran deberiamos acomodar la matriz.
-                movimiento.Movimiento_Tipo = comboMovimiento.Text;
+                movimiento.PersonaId = 1; //Santi: Hay que determinar de dónde sale este valor.
+                movimiento.ProveedorId = (int)comboProveedor.SelectedIndex; //Fran deberiamos acomodar la matriz.
+                movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
-                movimiento.Movimiento_Fecha_Creacion = DateTime.Now.Date; //Santi: Esto se puede hacer directamente desde la clase Movimiento.
-                movimiento.Movimiento_Fecha_Act = DateTime.Now.Date; //Santi: En C# este valor no puede ser nulo. Queda pendiente esto, aunque seguramente terminemos seteando la fecha de la carga por default.
-                movimiento.Movimiento_Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
+                movimiento.FechaCreacion = DateTime.Now.Date; //Santi: Esto se puede hacer directamente desde la clase Movimiento.
+                movimiento.FechaActualizacion = DateTime.Now.Date; //Santi: En C# este valor no puede ser nulo. Queda pendiente esto, aunque seguramente terminemos seteando la fecha de la carga por default.
+                movimiento.Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
 
                 movLogic.CargarMovimiento(movimiento);
                 gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();

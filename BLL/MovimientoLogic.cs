@@ -12,8 +12,8 @@ namespace BLL
             Caja caja = new Caja();
 
             int movimientoID = dao.CargarMovimiento(movimiento);
-            caja.Movimiento_Id = movimientoID;
-            caja.Caja_Total = movimiento.Importe;
+            caja.MovimientoId = movimientoID;
+            caja.Total = movimiento.Importe;
             cajaLogic.CargarCaja(caja);
         }
 

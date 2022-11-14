@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\BLL\\BLL.csproj": {}
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\BLL\\BLL.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\garev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\garev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -66,24 +66,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\garev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\garev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -98,8 +98,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -139,24 +139,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\garev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\garev\\source\\repos\\Flujo_De_Caja_Login\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\garev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -198,7 +198,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

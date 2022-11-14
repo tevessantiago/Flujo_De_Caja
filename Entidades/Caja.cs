@@ -2,8 +2,8 @@
 {
     public class Caja
     {
-        public int Caja_Id { get; set; }
-        public int Movimiento_Id { get; set; }
-        public double Caja_Total { get; set; }
+        public int CajaId { get; set; }
+        public int MovimientoId { get; set; }
+        public double Total { get; set; }
     }
 }
