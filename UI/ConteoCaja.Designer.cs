@@ -48,6 +48,13 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSumarTotal = new System.Windows.Forms.Button();
+            this.lblSumaTotal = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCaja)).BeginInit();
             this.panel1.SuspendLayout();
@@ -121,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(26, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 15);
+            this.label2.Size = new System.Drawing.Size(98, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Movimiento Tipo";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -243,6 +250,67 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Location = new System.Drawing.Point(678, 76);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(200, 23);
+            this.dtpDesde.TabIndex = 17;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Location = new System.Drawing.Point(678, 124);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(200, 23);
+            this.dtpHasta.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(592, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 15);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Desde";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(593, 130);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 15);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Hasta";
+            // 
+            // btnSumarTotal
+            // 
+            this.btnSumarTotal.Location = new System.Drawing.Point(678, 184);
+            this.btnSumarTotal.Name = "btnSumarTotal";
+            this.btnSumarTotal.Size = new System.Drawing.Size(75, 23);
+            this.btnSumarTotal.TabIndex = 21;
+            this.btnSumarTotal.Text = "TOTAL";
+            this.btnSumarTotal.UseVisualStyleBackColor = true;
+            this.btnSumarTotal.Click += new System.EventHandler(this.btnSumarTotal_Click);
+            // 
+            // lblSumaTotal
+            // 
+            this.lblSumaTotal.AutoSize = true;
+            this.lblSumaTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSumaTotal.Location = new System.Drawing.Point(713, 238);
+            this.lblSumaTotal.Name = "lblSumaTotal";
+            this.lblSumaTotal.Size = new System.Drawing.Size(25, 30);
+            this.lblSumaTotal.TabIndex = 22;
+            this.lblSumaTotal.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(593, 250);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 15);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Suma Total";
+            // 
             // ConteoCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -251,6 +319,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1024, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblSumaTotal);
+            this.Controls.Add(this.btnSumarTotal);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dtpHasta);
+            this.Controls.Add(this.dtpDesde);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.richTextBox1);
@@ -302,5 +377,12 @@
         private Label label5;
         private ToolStripMenuItem salirToolStripMenuItem;
         private Panel panel1;
+        private DateTimePicker dtpDesde;
+        private DateTimePicker dtpHasta;
+        private Label label6;
+        private Label label7;
+        private Button btnSumarTotal;
+        private Label lblSumaTotal;
+        private Label label9;
     }
 }

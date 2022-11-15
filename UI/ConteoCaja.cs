@@ -9,7 +9,7 @@ namespace UI
         MovimientoLogic movLogic = new MovimientoLogic();
         CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
         ProveedorLogic provLogic = new ProveedorLogic();
-
+        TotalLogic totalLogic= new TotalLogic();
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
@@ -139,5 +139,17 @@ namespace UI
                 formPersona.Show();
             }
         }
+
+        private void btnSumarTotal_Click(object sender, EventArgs e)
+        {
+            Total total = new Total();
+            total.FechaDesde = dtpDesde.Value;
+            total.FechaHasta = dtpHasta.Value;
+
+
+            lblSumaTotal.Text = totalLogic.ObtenerTotal(total).ToString();
+        }
+
+        
     }
 }
