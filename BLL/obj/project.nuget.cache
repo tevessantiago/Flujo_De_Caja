@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LIGJmbmYMVrF5Xbm98tjmbtEILcfMwhDPfVDRIzaF8RCzUeUv8h+ouH54dLx+o6NaE5LfWOKkpNfgYMX0thDuQ==",
+  "dgSpecHash": "GEpbulkCxHHCLIIXkvG0pzS6NiEKLe+xWVL1AYBBPLUCIj1uZmT32K/oQ6vqfM1hcovKccm1ph9cK+fNpaCUFQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\teves\\source\\repos\\Flujo_De_Caja\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\teves\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\teves\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",

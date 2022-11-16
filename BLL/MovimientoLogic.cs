@@ -44,5 +44,30 @@ namespace BLL
         {
             return dao.ObtenerMovimientos();
         }
+
+        public void BorrarMovimiento(int movId)
+        {
+            using(var trx = new TransactionScope())
+            {
+                dao.BorrarMovimiento(movId);
+
+                trx.Complete();
+            }
+        }
+
+        public void ModificarMovimiento(Movimiento movimiento, string proveedor)
+        {
+            if (movimiento.Tipo.Equals("Pago a Proveedor") && proveedor.Equals("N/A"))
+            {
+                throw new Exception("Por favor, seleccione un proveedor.");
+            }
+
+            using (var trx = new TransactionScope())
+            {
+                dao.ModificarMovimiento(movimiento);
+
+                trx.Complete();
+            }
+        }
     }
 }

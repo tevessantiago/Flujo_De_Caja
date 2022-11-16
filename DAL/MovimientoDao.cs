@@ -73,5 +73,56 @@ namespace DAL
             }
             return movimientos;
         }
+
+        public void BorrarMovimiento(int movId)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                        "DELETE FROM MOVIMIENTO WHERE MOVIMIENTO_ID=@MOVIMIENTO_ID", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@MOVIMIENTO_ID", movId);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }
+        }
+
+        public void ModificarMovimiento(Movimiento movimiento)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                    "UPDATE MOVIMIENTO SET " +
+                    "PROVEEDOR_ID=@PROVEEDOR_ID, " +
+                    "MOVIMIENTO_TIPO=@MOVIMIENTO_TIPO, " +
+                    //"IMPORTE=@IMPORTE, " +
+                    "MOVIMIENTO_FECHA_ACT=@MOVIMIENTO_FECHA_ACT, " +
+                    "MOVIMIENTO_COMENTARIO=@MOVIMIENTO_COMENTARIO " +
+                    "WHERE MOVIMIENTO_ID=@MOVIMIENTO_ID;"
+                        , miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_ID", movimiento.ProveedorId);
+                    miComando.Parameters.AddWithValue("@MOVIMIENTO_TIPO", movimiento.Tipo);
+                    //miComando.Parameters.AddWithValue("@IMPORTE", movimiento.Importe); //Aclarar que hacemos con esto.
+                    miComando.Parameters.AddWithValue("@MOVIMIENTO_FECHA_ACT", movimiento.FechaActualizacion);
+                    miComando.Parameters.AddWithValue("@MOVIMIENTO_COMENTARIO", movimiento.Comentario);
+                    miComando.Parameters.AddWithValue("@MOVIMIENTO_ID", movimiento.MovimientoId);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }                
+        }
+
     }
 }

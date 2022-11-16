@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Entidades;
+using Microsoft.VisualBasic.Logging;
 using System.Runtime.InteropServices;
 
 namespace UI
@@ -28,11 +29,12 @@ namespace UI
             try
             {                
                 gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.ClearSelection();
                 comboProveedor.ValueMember = "ProveedorId";
                 comboProveedor.DisplayMember = "Nombre";                
                 comboProveedor.DataSource = provLogic.ObtenerProveedores();
                 comboMovimiento.SelectedIndex = 0;
-                ActualizarLabelCaja();
+                ActualizarLabelCaja();                
             }
             catch (Exception ex)
             {
@@ -49,15 +51,18 @@ namespace UI
                 {
                     throw new Exception("El importe debe ser un valor decimal.");
                 }
+                if (!int.TryParse(comboProveedor.SelectedValue.ToString(), out int proveedorId))
+                {
+                    throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
+                }
 
                 Movimiento movimiento = new Movimiento();
 
                 movimiento.PersonaId = 1; //Santi: Hay que determinar de dónde sale este valor.
-                movimiento.ProveedorId = int.Parse(comboProveedor.SelectedValue.ToString());
+                movimiento.ProveedorId = proveedorId;
                 movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
-                movimiento.FechaCreacion = DateTime.Now.Date; //Santi: Esto se puede hacer directamente desde la clase Movimiento.
-                movimiento.FechaActualizacion = DateTime.Now.Date; //Santi: En C# este valor no puede ser nulo. Queda pendiente esto, aunque seguramente terminemos seteando la fecha de la carga por default.
+                movimiento.FechaCreacion = DateTime.Now.Date;                
                 movimiento.Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
 
                 movLogic.CargarMovimiento(movimiento, comboProveedor.Text);
@@ -71,6 +76,7 @@ namespace UI
                 txtImporte.Clear();
                 richTextBox1.Clear();                
                 gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.ClearSelection();
                 ActualizarLabelCaja();          
             }
         }
@@ -172,6 +178,78 @@ namespace UI
             else
             {
                 comboProveedor.Enabled = true;
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                if (gridCaja.DataSource != null && gridCaja.SelectedCells.Count > 0)
+                {
+                    if (!int.TryParse(gridCaja.SelectedCells[0].Value.ToString(), out int movimientoId))
+                    {
+                        throw new Exception("Error: No se pudo obtener el MovimientoId como un entero.");
+                    }
+
+                    movLogic.BorrarMovimiento(movimientoId);                    
+                }
+                else
+                {
+                    throw new Exception("Por favor, seleccione un registro.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.ClearSelection();
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gridCaja.DataSource != null && gridCaja.SelectedCells.Count > 0)
+                {
+                    if(!int.TryParse(gridCaja.SelectedCells[0].Value.ToString(), out int movimientoId))
+                    {
+                        throw new Exception("Error: No se pudo obtener el MovimientoId como un entero.");
+                    }
+                    if (!int.TryParse(comboProveedor.SelectedValue.ToString(), out int proveedorId))
+                    {
+                        throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
+                    }
+
+                    Movimiento movimiento = new Movimiento();
+                    
+                    movimiento.ProveedorId = proveedorId;
+                    movimiento.Tipo = comboMovimiento.Text;
+                    movimiento.Comentario = richTextBox1.Text;
+                    movimiento.MovimientoId = movimientoId;
+
+                    movLogic.ModificarMovimiento(movimiento, comboProveedor.Text);
+                }
+                else
+                {
+                    throw new Exception("Por favor, seleccione un registro.");
+                }
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtImporte.Clear();
+                richTextBox1.Clear();
+                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.ClearSelection();
             }
         }
     }

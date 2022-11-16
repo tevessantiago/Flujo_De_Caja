@@ -40,7 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.gridCaja = new System.Windows.Forms.DataGridView();
             this.btnCargar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.comboMovimiento = new System.Windows.Forms.ComboBox();
@@ -162,6 +162,7 @@
             this.gridCaja.Name = "gridCaja";
             this.gridCaja.ReadOnly = true;
             this.gridCaja.RowTemplate.Height = 25;
+            this.gridCaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridCaja.Size = new System.Drawing.Size(1000, 332);
             this.gridCaja.TabIndex = 5;
             // 
@@ -175,14 +176,15 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
-            // btnEditar
+            // btnModificar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(417, 124);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(153, 36);
-            this.btnEditar.TabIndex = 7;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnModificar.Location = new System.Drawing.Point(417, 124);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(153, 36);
+            this.btnModificar.TabIndex = 7;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -192,6 +194,7 @@
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtImporte
             // 
@@ -359,7 +362,7 @@
             this.Controls.Add(this.comboMovimiento);
             this.Controls.Add(this.txtImporte);
             this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.gridCaja);
             this.Controls.Add(this.label4);
@@ -394,7 +397,7 @@
         private Label label4;
         private DataGridView gridCaja;
         private Button btnCargar;
-        private Button btnEditar;
+        private Button btnModificar;
         private Button btnEliminar;
         private TextBox txtImporte;
         private ComboBox comboMovimiento;
