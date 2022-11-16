@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\UI\\UI.csproj": {}
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\BLL.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\nicom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nicom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,11 +32,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\DAL.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -66,24 +66,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\DAL.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\nicom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nicom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -98,8 +98,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -139,24 +139,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\Entidades.csproj",
-        "packagesPath": "C:\\Users\\nicom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\Entidades\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\Entidades.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nicom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -198,24 +198,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\UI\\UI.csproj": {
+    "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\UI\\UI.csproj",
-        "packagesPath": "C:\\Users\\nicom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\UI\\obj\\",
+        "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\UI.csproj",
+        "packagesPath": "C:\\Users\\teves\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nicom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\teves\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -230,8 +230,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\nicom\\Documents\\GitHub\\Flujo_De_Caja\\BLL\\BLL.csproj"
+              "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\teves\\source\\repos\\FlujoDeCaja\\BLL\\BLL.csproj"
               }
             }
           }
@@ -264,7 +264,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

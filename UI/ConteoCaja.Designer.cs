@@ -202,6 +202,8 @@
             // 
             // comboMovimiento
             // 
+            this.comboMovimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboMovimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboMovimiento.FormattingEnabled = true;
             this.comboMovimiento.Items.AddRange(new object[] {
             "Ingreso de Dinero",
@@ -212,9 +214,12 @@
             this.comboMovimiento.Name = "comboMovimiento";
             this.comboMovimiento.Size = new System.Drawing.Size(192, 23);
             this.comboMovimiento.TabIndex = 12;
+            this.comboMovimiento.SelectedIndexChanged += new System.EventHandler(this.comboMovimiento_SelectedIndexChanged);
             // 
             // comboProveedor
             // 
+            this.comboProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboProveedor.FormattingEnabled = true;
             this.comboProveedor.Location = new System.Drawing.Point(140, 124);
             this.comboProveedor.Name = "comboProveedor";

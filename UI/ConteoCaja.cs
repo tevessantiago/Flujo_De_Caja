@@ -26,11 +26,12 @@ namespace UI
         {
 
             try
-            {
+            {                
                 gridCaja.DataSource = movLogic.ObtenerMovimientos();
                 comboProveedor.ValueMember = "ProveedorId";
                 comboProveedor.DisplayMember = "Nombre";                
                 comboProveedor.DataSource = provLogic.ObtenerProveedores();
+                comboMovimiento.SelectedIndex = 0;
                 ActualizarLabelCaja();
             }
             catch (Exception ex)
@@ -59,7 +60,7 @@ namespace UI
                 movimiento.FechaActualizacion = DateTime.Now.Date; //Santi: En C# este valor no puede ser nulo. Queda pendiente esto, aunque seguramente terminemos seteando la fecha de la carga por default.
                 movimiento.Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
 
-                movLogic.CargarMovimiento(movimiento);                        
+                movLogic.CargarMovimiento(movimiento, comboProveedor.Text);
             }
             catch (Exception ex)
             {
@@ -156,6 +157,22 @@ namespace UI
                 MessageBox.Show("Error al obtener el total de la Caja: " + ex.Message);
             }
         }
-        
+
+        private void comboMovimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(!comboMovimiento.SelectedItem.ToString().Equals("Pago a Proveedor"))
+            {
+                if(comboProveedor.SelectedIndex != -1) //Por seguridad, en caso de que comboProveedor no tenga valores.
+                {
+                    comboProveedor.SelectedIndex = 0;
+                }
+
+                comboProveedor.Enabled = false;
+            }
+            else
+            {
+                comboProveedor.Enabled = true;
+            }
+        }
     }
 }
