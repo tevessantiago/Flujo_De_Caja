@@ -63,7 +63,7 @@ namespace UI
                 movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
                 movimiento.FechaCreacion = DateTime.Now.Date;                
-                movimiento.Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
+                movimiento.Comentario = richTextBox1.Text;
 
                 movLogic.CargarMovimiento(movimiento, comboProveedor.Text);
             }

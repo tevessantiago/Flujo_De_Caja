@@ -61,6 +61,10 @@ namespace BLL
             {
                 throw new Exception("Por favor, seleccione un proveedor.");
             }
+            if (string.IsNullOrEmpty(movimiento.Comentario))
+            {
+                throw new Exception("Por favor, comente el motivo de la modificación.");
+            }
 
             using (var trx = new TransactionScope())
             {
