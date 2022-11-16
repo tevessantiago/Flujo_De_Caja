@@ -55,6 +55,8 @@
             this.btnSumarTotal = new System.Windows.Forms.Button();
             this.lblSumaTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblCaja = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCaja)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,7 +91,6 @@
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.inicioToolStripMenuItem.Text = "Movimientos";
-            this.inicioToolStripMenuItem.Click += new System.EventHandler(this.inicioToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
@@ -131,7 +132,6 @@
             this.label2.Size = new System.Drawing.Size(98, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Movimiento Tipo";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -284,11 +284,11 @@
             // 
             // btnSumarTotal
             // 
-            this.btnSumarTotal.Location = new System.Drawing.Point(678, 184);
+            this.btnSumarTotal.Location = new System.Drawing.Point(678, 163);
             this.btnSumarTotal.Name = "btnSumarTotal";
             this.btnSumarTotal.Size = new System.Drawing.Size(75, 23);
             this.btnSumarTotal.TabIndex = 21;
-            this.btnSumarTotal.Text = "TOTAL";
+            this.btnSumarTotal.Text = "CALCULAR";
             this.btnSumarTotal.UseVisualStyleBackColor = true;
             this.btnSumarTotal.Click += new System.EventHandler(this.btnSumarTotal_Click);
             // 
@@ -296,7 +296,7 @@
             // 
             this.lblSumaTotal.AutoSize = true;
             this.lblSumaTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSumaTotal.Location = new System.Drawing.Point(713, 238);
+            this.lblSumaTotal.Location = new System.Drawing.Point(933, 159);
             this.lblSumaTotal.Name = "lblSumaTotal";
             this.lblSumaTotal.Size = new System.Drawing.Size(25, 30);
             this.lblSumaTotal.TabIndex = 22;
@@ -305,11 +305,30 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(593, 250);
+            this.label9.Location = new System.Drawing.Point(813, 171);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 15);
             this.label9.TabIndex = 23;
             this.label9.Text = "Suma Total";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(593, 270);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 15);
+            this.label8.TabIndex = 24;
+            this.label8.Text = "Caja";
+            // 
+            // lblCaja
+            // 
+            this.lblCaja.AutoSize = true;
+            this.lblCaja.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCaja.Location = new System.Drawing.Point(678, 258);
+            this.lblCaja.Name = "lblCaja";
+            this.lblCaja.Size = new System.Drawing.Size(25, 30);
+            this.lblCaja.TabIndex = 25;
+            this.lblCaja.Text = "0";
             // 
             // ConteoCaja
             // 
@@ -319,6 +338,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1024, 700);
             this.ControlBox = false;
+            this.Controls.Add(this.lblCaja);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblSumaTotal);
             this.Controls.Add(this.btnSumarTotal);
@@ -384,5 +405,7 @@
         private Button btnSumarTotal;
         private Label lblSumaTotal;
         private Label label9;
+        private Label label8;
+        private Label lblCaja;
     }
 }

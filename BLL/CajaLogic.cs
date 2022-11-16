@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Entidades;
+using System.Transactions;
 
 namespace BLL
 {
@@ -7,9 +8,19 @@ namespace BLL
     {
         CajaDao dao = new CajaDao();
 
-        public void CargarCaja(Caja caja)
+        public void ActualizarCaja(double monto)
         {
-            dao.CargarCaja(caja);
+            using(var trx = new TransactionScope())
+            {
+                dao.ActualizarCaja(monto);
+
+                trx.Complete();
+            }            
+        }
+
+        public List<Caja> ObtenerCaja()
+        {
+            return dao.ObtenerCaja();
         }
     }
 }

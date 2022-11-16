@@ -10,6 +10,7 @@ namespace UI
         CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
         ProveedorLogic provLogic = new ProveedorLogic();
         TotalLogic totalLogic= new TotalLogic();
+        CajaLogic cajaLogic = new CajaLogic();
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
@@ -26,26 +27,17 @@ namespace UI
 
             try
             {
-                gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
-                comboProveedor.DataSource = provLogic.ObtenerProveedores();
-                comboProveedor.DisplayMember = "Nombre";
+                gridCaja.DataSource = movLogic.ObtenerMovimientos();
                 comboProveedor.ValueMember = "ProveedorId";
+                comboProveedor.DisplayMember = "Nombre";                
+                comboProveedor.DataSource = provLogic.ObtenerProveedores();
+                ActualizarLabelCaja();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error con la conexion a la BD: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
             
-        }
-
-        private void inicioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -60,16 +52,14 @@ namespace UI
                 Movimiento movimiento = new Movimiento();
 
                 movimiento.PersonaId = 1; //Santi: Hay que determinar de dónde sale este valor.
-                movimiento.ProveedorId = (int)comboProveedor.SelectedIndex; //Fran deberiamos acomodar la matriz.
+                movimiento.ProveedorId = int.Parse(comboProveedor.SelectedValue.ToString());
                 movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
                 movimiento.FechaCreacion = DateTime.Now.Date; //Santi: Esto se puede hacer directamente desde la clase Movimiento.
                 movimiento.FechaActualizacion = DateTime.Now.Date; //Santi: En C# este valor no puede ser nulo. Queda pendiente esto, aunque seguramente terminemos seteando la fecha de la carga por default.
                 movimiento.Comentario = richTextBox1.Text; //Santi: Pendiente lógica para hacerlo obligatorio en updates.
 
-                movLogic.CargarMovimiento(movimiento);
-                gridCaja.DataSource = cierreLogic.ObtenerCierreDiario();
-
+                movLogic.CargarMovimiento(movimiento);                        
             }
             catch (Exception ex)
             {
@@ -77,7 +67,10 @@ namespace UI
             }
             finally
             {
-
+                txtImporte.Clear();
+                richTextBox1.Clear();                
+                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                ActualizarLabelCaja();          
             }
         }
 
@@ -150,6 +143,19 @@ namespace UI
             lblSumaTotal.Text = totalLogic.ObtenerTotal(total).ToString();
         }
 
+        private void ActualizarLabelCaja()
+        {
+            try
+            {
+                List<Caja> caja = new List<Caja>();
+                caja = cajaLogic.ObtenerCaja();
+                lblCaja.Text = "$" + caja[0].Total.ToString();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al obtener el total de la Caja: " + ex.Message);
+            }
+        }
         
     }
 }

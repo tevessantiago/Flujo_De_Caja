@@ -8,20 +8,51 @@ namespace DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["ConexionKiosko"].ConnectionString;
 
-        public void CargarCaja(Caja caja)
+        public List<Caja> ObtenerCaja()
+        {
+            List<Caja> caja = new List<Caja>();
+
+            using(var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                    "SELECT * FROM CAJA;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    using(var reader = miComando.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                caja.Add(new Caja
+                                {
+                                    CajaId = int.Parse(reader["CAJA_ID"].ToString()),
+                                    Total = double.Parse(reader["CAJA_TOTAL"].ToString())
+                                });
+                            }
+                        }
+                    }
+                }
+                miConexion.Close();
+            }
+            return caja;
+        }
+
+        public void ActualizarCaja(double monto)
         {
             using (var miConexion = new SqlConnection(connectionString))
             {
                 miConexion.Open();
 
                 using (var miComando = new SqlCommand(
-                    "INSERT INTO CAJA (MOVIMIENTO_ID, CAJA_TOTAL)" +
-                    " VALUES (@MOVIMIENTO_ID, @CAJA_TOTAL);", miConexion))
+                    "UPDATE CAJA SET CAJA_TOTAL=@Monto WHERE CAJA_ID=1;", miConexion))
                 {
                     miComando.CommandType = System.Data.CommandType.Text;
-
-                    miComando.Parameters.AddWithValue("@MOVIMIENTO_ID", caja.MovimientoId);
-                    miComando.Parameters.AddWithValue("@CAJA_TOTAL", caja.Total);
+                    
+                    miComando.Parameters.AddWithValue("@Monto", monto);
 
                     miComando.ExecuteNonQuery();
                 }
