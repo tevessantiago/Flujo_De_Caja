@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -66,6 +67,33 @@ namespace DAL
             return personas;
         }
 
+        public int ObtenerPersonaId(int usuarioId)
+        {
+            int personaId = 0;
 
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                    "SELECT PERSONA_ID FROM PERSONA WHERE USUARIO_ID=@USUARIO_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@USUARIO_ID", usuarioId);
+
+                    using (var adapter = new SqlDataAdapter(miComando))
+                    {
+                        var dataSet = new DataSet();
+
+                        adapter.Fill(dataSet);
+
+                        personaId = int.Parse(dataSet.Tables[0].Rows[0]["PERSONA_ID"].ToString());//Ver de meter alguna medida de seguridad.
+                    }                
+                }
+                miConexion.Close();
+            }
+            return personaId;
+        }
     }
 }

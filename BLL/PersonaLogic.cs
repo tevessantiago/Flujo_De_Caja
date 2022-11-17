@@ -16,5 +16,10 @@ namespace BLL
         {
             return dao.ObtenerPersonas();
         }
+
+        public int ObtenerPersonaId(int usuarioId)
+        {
+            return dao.ObtenerPersonaId(usuarioId);
+        }
     }
 }

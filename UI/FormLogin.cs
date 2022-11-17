@@ -1,14 +1,5 @@
 ﻿using BLL;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -18,17 +9,24 @@ namespace UI
         {
             InitializeComponent();
         }
-        LoginLogic loginLogic = new LoginLogic();
+        UsuarioLogic userLogic = new UsuarioLogic();
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
+            Usuario login = new Usuario();
             login.User = txtUser.Text;
             login.Pass = txtPass.Text;
 
-            bool existe = loginLogic.VerificarUsuario(login);
+            bool existe = userLogic.VerificarUsuario(login);
             if (existe)
             {
-                ConteoCaja abrir = new ConteoCaja();
+                if(!int.TryParse(userLogic.ObtenerUsuarioId(txtUser.Text, txtPass.Text).ToString(), out int usuarioId))//Vulnerable a 2 usuarios con mismo user y pass.
+                {
+                    MessageBox.Show("Error: No se pudo obtener el usuarioId.");
+                    return;
+                }
+                
+                //Application.Run(new ConteoCaja(usuarioId)); // Qué diferencia hay?
+                ConteoCaja abrir = new ConteoCaja(usuarioId);
                 this.Hide();
                 abrir.Show();
             }

@@ -101,6 +101,7 @@ namespace DAL
 
                 using (var miComando = new SqlCommand(
                     "UPDATE MOVIMIENTO SET " +
+                    "PERSONA_ID=@PERSONA_ID, " +
                     "PROVEEDOR_ID=@PROVEEDOR_ID, " +
                     "MOVIMIENTO_TIPO=@MOVIMIENTO_TIPO, " +
                     //"IMPORTE=@IMPORTE, " +
@@ -111,6 +112,7 @@ namespace DAL
                 {
                     miComando.CommandType = System.Data.CommandType.Text;
 
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", movimiento.PersonaId);
                     miComando.Parameters.AddWithValue("@PROVEEDOR_ID", movimiento.ProveedorId);
                     miComando.Parameters.AddWithValue("@MOVIMIENTO_TIPO", movimiento.Tipo);
                     //miComando.Parameters.AddWithValue("@IMPORTE", movimiento.Importe); //Aclarar que hacemos con esto.

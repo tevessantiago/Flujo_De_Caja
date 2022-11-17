@@ -7,19 +7,22 @@ namespace UI
 {
     public partial class ConteoCaja : Form
     {
-        MovimientoLogic movLogic = new MovimientoLogic();
+        MovimientoLogic movimientoLogic = new MovimientoLogic();
         CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
         ProveedorLogic provLogic = new ProveedorLogic();
         TotalLogic totalLogic= new TotalLogic();
         CajaLogic cajaLogic = new CajaLogic();
+        PersonaLogic personaLogic = new PersonaLogic();
+        private int usuarioId;
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
         int movY;
 
-        public ConteoCaja()
+        public ConteoCaja(int usuarioId)
         {
             InitializeComponent();
+            this.usuarioId = usuarioId;
         }
 
         
@@ -28,7 +31,7 @@ namespace UI
 
             try
             {                
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
                 comboProveedor.ValueMember = "ProveedorId";
                 comboProveedor.DisplayMember = "Nombre";                
@@ -55,17 +58,22 @@ namespace UI
                 {
                     throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
                 }
+                if (!int.TryParse(personaLogic.ObtenerPersonaId(this.usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
+                {
+                    throw new Exception("Error: No se pudo obtener personaId.");
+                }
 
                 Movimiento movimiento = new Movimiento();
 
-                movimiento.PersonaId = 1; //Santi: Hay que determinar de dónde sale este valor.
+                movimiento.PersonaId = personaId;
                 movimiento.ProveedorId = proveedorId;
                 movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
-                movimiento.FechaCreacion = DateTime.Now.Date;                
+                movimiento.FechaCreacion = DateTime.Now;
+                movimiento.FechaActualizacion = DateTime.Now;
                 movimiento.Comentario = richTextBox1.Text;
 
-                movLogic.CargarMovimiento(movimiento, comboProveedor.Text);
+                movimientoLogic.CargarMovimiento(movimiento, comboProveedor.Text);
             }
             catch (Exception ex)
             {
@@ -75,7 +83,7 @@ namespace UI
             {
                 txtImporte.Clear();
                 richTextBox1.Clear();                
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
                 ActualizarLabelCaja();          
             }
@@ -192,7 +200,7 @@ namespace UI
                         throw new Exception("Error: No se pudo obtener el MovimientoId como un entero.");
                     }
 
-                    movLogic.BorrarMovimiento(movimientoId);                    
+                    movimientoLogic.BorrarMovimiento(movimientoId);                    
                 }
                 else
                 {
@@ -205,7 +213,7 @@ namespace UI
             }
             finally
             {
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
             }
         }
@@ -224,15 +232,21 @@ namespace UI
                     {
                         throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
                     }
+                    if (!int.TryParse(personaLogic.ObtenerPersonaId(this.usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
+                    {
+                        throw new Exception("Error: No se pudo obtener personaId.");
+                    }
 
                     Movimiento movimiento = new Movimiento();
-                    
+
+                    movimiento.PersonaId = personaId;
                     movimiento.ProveedorId = proveedorId;
                     movimiento.Tipo = comboMovimiento.Text;
                     movimiento.Comentario = richTextBox1.Text;
+                    movimiento.FechaActualizacion = DateTime.Now;
                     movimiento.MovimientoId = movimientoId;
 
-                    movLogic.ModificarMovimiento(movimiento, comboProveedor.Text);
+                    movimientoLogic.ModificarMovimiento(movimiento, comboProveedor.Text);
                 }
                 else
                 {
@@ -248,7 +262,7 @@ namespace UI
             {
                 txtImporte.Clear();
                 richTextBox1.Clear();
-                gridCaja.DataSource = movLogic.ObtenerMovimientos();
+                gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
             }
         }
