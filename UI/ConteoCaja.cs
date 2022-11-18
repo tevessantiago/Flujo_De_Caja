@@ -266,5 +266,22 @@ namespace UI
                 gridCaja.ClearSelection();
             }
         }
+
+        /*
+         * Cuando se clickea el comboProveedor se actualizan los proveedores.
+         * Esto es para que cuando se crea un proveedor desde la aplicación, se actualicen.
+         */
+        private void comboProveedor_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                comboProveedor.DataSource = provLogic.ObtenerProveedores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: No se pudo obtener proveedores: " + ex.Message);
+            }
+
+        }
     }
 }

@@ -228,6 +228,7 @@
             this.comboProveedor.Name = "comboProveedor";
             this.comboProveedor.Size = new System.Drawing.Size(192, 23);
             this.comboProveedor.TabIndex = 13;
+            this.comboProveedor.DropDown += new System.EventHandler(this.comboProveedor_DropDown);
             // 
             // richTextBox1
             // 
