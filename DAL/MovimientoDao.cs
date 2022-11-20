@@ -1,5 +1,6 @@
 ﻿using Entidades;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DAL
@@ -124,6 +125,33 @@ namespace DAL
                 }
                 miConexion.Close();
             }                
+        }
+
+        public double CalcularCaja()
+        {
+            double caja = 0;
+
+            using(var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using(var miComando = new SqlCommand(
+                    "SELECT COALESCE(SUM(IMPORTE),0) AS CAJA FROM MOVIMIENTO;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    using(var adapter = new SqlDataAdapter(miComando))
+                    {
+                        var dataSet = new DataSet();
+
+                        adapter.Fill(dataSet);
+
+                        caja = double.Parse(dataSet.Tables[0].Rows[0]["CAJA"].ToString());//Ver de meter alguna medida de seguridad.
+                    }
+                }
+                miConexion.Close();
+            }
+            return caja;
         }
 
     }

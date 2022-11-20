@@ -1,12 +1,6 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -14,26 +8,35 @@ namespace DAL
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["ConexionKiosko"].ConnectionString;
 
-        public DataTable ObtenerTotal()
+        public double ObtenerTotal(Total total)
         {
-            DataTable tablaTotal = new DataTable();
-            using (var miConexion = new SqlConnection(connectionString)) 
+            double totalEntreFechas = 0;
+
+            using(var miConexion = new SqlConnection(connectionString))
             {
                 miConexion.Open();
-                using (var miComando = new SqlCommand("SELECT MOVIMIENTO_FECHA_CREACION,IMPORTE FROM MOVIMIENTO", miConexion))
 
+                using (var miComando = new SqlCommand("SELECT COALESCE(SUM(IMPORTE),0) AS TOTAL FROM MOVIMIENTO WHERE MOVIMIENTO_FECHA_CREACION BETWEEN @DESDE AND @HASTA;", miConexion))
                 {
                     miComando.CommandType = System.Data.CommandType.Text;
-                    SqlDataAdapter adapter = new SqlDataAdapter(miComando);
-                    adapter.SelectCommand = miComando;
-                    adapter.Fill(tablaTotal);
 
+                    miComando.Parameters.AddWithValue("@DESDE", total.FechaDesde);
+                    miComando.Parameters.AddWithValue("@HASTA", total.FechaHasta);
 
-
-                };
+                    using(var reader = miComando.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                totalEntreFechas = double.Parse(reader["TOTAL"].ToString());
+                            }
+                        }
+                    }
+                }
                 miConexion.Close();
-            };
-            return tablaTotal;
+            }
+            return totalEntreFechas;
         }
 
     }

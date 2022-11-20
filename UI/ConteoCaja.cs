@@ -1,18 +1,13 @@
 ﻿using BLL;
 using Entidades;
-using Microsoft.VisualBasic.Logging;
-using System.Runtime.InteropServices;
 
 namespace UI
 {
     public partial class ConteoCaja : Form
     {
         MovimientoLogic movimientoLogic = new MovimientoLogic();
-        CierreDiarioLogic cierreLogic = new CierreDiarioLogic();
         ProveedorLogic provLogic = new ProveedorLogic();
         TotalLogic totalLogic= new TotalLogic();
-        CajaLogic cajaLogic = new CajaLogic();
-        PersonaLogic personaLogic = new PersonaLogic();
         private int usuarioId;
         //Emmanuel: Variables para mover el formulario
         int mov;
@@ -37,7 +32,7 @@ namespace UI
                 comboProveedor.DisplayMember = "Nombre";                
                 comboProveedor.DataSource = provLogic.ObtenerProveedores();
                 comboMovimiento.SelectedIndex = 0;
-                ActualizarLabelCaja();                
+                ActualizarLabelCaja();
             }
             catch (Exception ex)
             {
@@ -58,14 +53,9 @@ namespace UI
                 {
                     throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
                 }
-                if (!int.TryParse(personaLogic.ObtenerPersonaId(this.usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
-                {
-                    throw new Exception("Error: No se pudo obtener personaId.");
-                }
 
                 Movimiento movimiento = new Movimiento();
 
-                movimiento.PersonaId = personaId;
                 movimiento.ProveedorId = proveedorId;
                 movimiento.Tipo = comboMovimiento.Text;
                 movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
@@ -73,7 +63,7 @@ namespace UI
                 movimiento.FechaActualizacion = DateTime.Now;
                 movimiento.Comentario = richTextBox1.Text;
 
-                movimientoLogic.CargarMovimiento(movimiento, comboProveedor.Text);
+                movimientoLogic.CargarMovimiento(movimiento, comboProveedor.Text, this.usuarioId);
             }
             catch (Exception ex)
             {
@@ -162,9 +152,7 @@ namespace UI
         {
             try
             {
-                List<Caja> caja = new List<Caja>();
-                caja = cajaLogic.ObtenerCaja();
-                lblCaja.Text = "$" + caja[0].Total.ToString();
+                lblCaja.Text = "$" + movimientoLogic.CalcularCaja();
             }
             catch(Exception ex)
             {
@@ -213,6 +201,7 @@ namespace UI
             }
             finally
             {
+                ActualizarLabelCaja();
                 gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
             }
@@ -232,21 +221,16 @@ namespace UI
                     {
                         throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
                     }
-                    if (!int.TryParse(personaLogic.ObtenerPersonaId(this.usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
-                    {
-                        throw new Exception("Error: No se pudo obtener personaId.");
-                    }
 
                     Movimiento movimiento = new Movimiento();
 
-                    movimiento.PersonaId = personaId;
                     movimiento.ProveedorId = proveedorId;
                     movimiento.Tipo = comboMovimiento.Text;
                     movimiento.Comentario = richTextBox1.Text;
                     movimiento.FechaActualizacion = DateTime.Now;
                     movimiento.MovimientoId = movimientoId;
 
-                    movimientoLogic.ModificarMovimiento(movimiento, comboProveedor.Text);
+                    movimientoLogic.ModificarMovimiento(movimiento, comboProveedor.Text, this.usuarioId);
                 }
                 else
                 {

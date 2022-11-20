@@ -1,6 +1,5 @@
 ﻿using DAL;
 using Entidades;
-using System.Reflection.Metadata.Ecma335;
 using System.Transactions;
 
 namespace BLL
@@ -8,13 +7,13 @@ namespace BLL
     public class MovimientoLogic
     {
         MovimientoDao dao = new MovimientoDao();
-        CajaLogic cajaLogic = new CajaLogic();
-        public void CargarMovimiento(Movimiento movimiento, string proveedor)
+        PersonaLogic personaLogic = new PersonaLogic();
+        public void CargarMovimiento(Movimiento movimiento, string proveedor, int usuarioId)
         {
-            List<Caja> caja = new List<Caja>();
-
-            caja = cajaLogic.ObtenerCaja();
-
+            if (!int.TryParse(personaLogic.ObtenerPersonaId(usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
+            {
+                throw new Exception("Error: No se pudo obtener personaId.");
+            }
             if (movimiento.Tipo.Equals("Pago a Proveedor") && proveedor.Equals("N/A"))
             {
                 throw new Exception("Por favor, seleccione un proveedor.");
@@ -27,14 +26,12 @@ namespace BLL
             {
                 movimiento.Importe *= -1; //Se convierte el importe a negativo.
             }
-            
-            double total = caja[0].Total + movimiento.Importe;
+
+            movimiento.PersonaId = personaId;
 
             using(var trx = new TransactionScope())
             {
                 int movimientoID = dao.CargarMovimiento(movimiento);
-
-                cajaLogic.ActualizarCaja(total);
 
                 trx.Complete();
             }            
@@ -55,8 +52,12 @@ namespace BLL
             }
         }
 
-        public void ModificarMovimiento(Movimiento movimiento, string proveedor)
+        public void ModificarMovimiento(Movimiento movimiento, string proveedor, int usuarioId)
         {
+            if (!int.TryParse(personaLogic.ObtenerPersonaId(usuarioId).ToString(), out int personaId))//Vulnerable a 2 personas con mismo userId. O Persona sin userId.
+            {
+                throw new Exception("Error: No se pudo obtener personaId.");
+            }
             if (movimiento.Tipo.Equals("Pago a Proveedor") && proveedor.Equals("N/A"))
             {
                 throw new Exception("Por favor, seleccione un proveedor.");
@@ -66,12 +67,19 @@ namespace BLL
                 throw new Exception("Por favor, comente el motivo de la modificación.");
             }
 
+            movimiento.PersonaId = personaId;
+
             using (var trx = new TransactionScope())
             {
                 dao.ModificarMovimiento(movimiento);
 
                 trx.Complete();
             }
+        }
+
+        public double CalcularCaja()
+        {
+            return dao.CalcularCaja();
         }
     }
 }
