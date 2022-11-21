@@ -29,6 +29,7 @@ namespace UI
         private void FormProveedor_Load(object sender, EventArgs e)
         {
             this.TopLevel = true;
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -72,6 +73,7 @@ namespace UI
 
                 proveedor.Nombre = txtNombre.Text;
                 proveedor.Rubro = txtRubro.Text;
+                proveedor.CUIT = txtCUIT.Text;
                 proveedor.FechaAlta = DateTime.Today;
                 if (cbBajaProveedor.Checked)
                 {
@@ -92,6 +94,24 @@ namespace UI
             finally
             {
 
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gridProveedor.DataSource = provLogic.ObtenerProveedores();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
     }

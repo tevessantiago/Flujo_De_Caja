@@ -7,17 +7,19 @@ namespace UI
     {
         MovimientoLogic movimientoLogic = new MovimientoLogic();
         ProveedorLogic provLogic = new ProveedorLogic();
-        TotalLogic totalLogic= new TotalLogic();
+        
         private int usuarioId;
+        private string admin;
         //Emmanuel: Variables para mover el formulario
         int mov;
         int movX;
         int movY;
 
-        public ConteoCaja(int usuarioId)
+        public ConteoCaja(int usuarioId, string admin)
         {
             InitializeComponent();
             this.usuarioId = usuarioId;
+            this.admin = admin;
         }
 
         
@@ -30,7 +32,7 @@ namespace UI
                 gridCaja.ClearSelection();
                 comboProveedor.ValueMember = "ProveedorId";
                 comboProveedor.DisplayMember = "Nombre";                
-                comboProveedor.DataSource = provLogic.ObtenerProveedores();
+                comboProveedor.DataSource = provLogic.ObtenerProveedoresAlta();// Cambie para que me traiga solo los que esten de alta
                 comboMovimiento.SelectedIndex = 0;
                 ActualizarLabelCaja();
             }
@@ -118,7 +120,7 @@ namespace UI
             else
             {
                 FormProveedor formProveedor = new FormProveedor();
-                formProveedor.Show();
+                    formProveedor.Show();                  
             }
 
         }
@@ -134,18 +136,40 @@ namespace UI
             else
             {
                 FormPersona formPersona = new FormPersona();
-                formPersona.Show();
+                if(admin == "Y")
+                {
+                    formPersona.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Acceso denegado!");
+                }
+                
             }
         }
 
         private void btnSumarTotal_Click(object sender, EventArgs e)
         {
-            Total total = new Total();
-            total.FechaDesde = dtpDesde.Value;
-            total.FechaHasta = dtpHasta.Value;
+            try
+            {
+                DateTime desde, hasta;
 
+                desde = dtpDesde.Value;
+                hasta = dtpHasta.Value;
 
-            lblSumaTotal.Text = totalLogic.ObtenerTotal(total).ToString();
+                lblSumaTotal.Text = movimientoLogic.TotalEntreFechas(desde, hasta).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dtpDesde.Value = DateTime.Now;
+                dtpHasta.Value = DateTime.Now;  
+            }
+            
         }
 
         private void ActualizarLabelCaja()
@@ -259,7 +283,7 @@ namespace UI
         {
             try
             {
-                comboProveedor.DataSource = provLogic.ObtenerProveedores();
+                comboProveedor.DataSource = provLogic.ObtenerProveedoresAlta();// Cambie para que me traiga solo los que esten de alta
             }
             catch (Exception ex)
             {

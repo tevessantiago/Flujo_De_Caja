@@ -43,6 +43,9 @@
             this.proveedorLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCUIT = new System.Windows.Forms.TextBox();
+            this.btnVer = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridProveedor)).BeginInit();
@@ -84,7 +87,7 @@
             this.flowLayoutPanel1.Controls.Add(this.menuStrip1);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(344, 24);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(446, 24);
             this.flowLayoutPanel1.TabIndex = 2;
             this.flowLayoutPanel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseDown);
             this.flowLayoutPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseMove);
@@ -111,7 +114,7 @@
             // cbBajaProveedor
             // 
             this.cbBajaProveedor.AutoSize = true;
-            this.cbBajaProveedor.Location = new System.Drawing.Point(12, 151);
+            this.cbBajaProveedor.Location = new System.Drawing.Point(12, 184);
             this.cbBajaProveedor.Name = "cbBajaProveedor";
             this.cbBajaProveedor.Size = new System.Drawing.Size(105, 19);
             this.cbBajaProveedor.TabIndex = 5;
@@ -134,7 +137,7 @@
             // 
             // btnCargar
             // 
-            this.btnCargar.Location = new System.Drawing.Point(223, 151);
+            this.btnCargar.Location = new System.Drawing.Point(223, 184);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(109, 23);
             this.btnCargar.TabIndex = 8;
@@ -144,13 +147,11 @@
             // 
             // gridProveedor
             // 
-            this.gridProveedor.AutoGenerateColumns = false;
             this.gridProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridProveedor.DataSource = this.proveedorLogicBindingSource;
-            this.gridProveedor.Location = new System.Drawing.Point(10, 196);
+            this.gridProveedor.Location = new System.Drawing.Point(10, 214);
             this.gridProveedor.Name = "gridProveedor";
             this.gridProveedor.RowTemplate.Height = 25;
-            this.gridProveedor.Size = new System.Drawing.Size(322, 208);
+            this.gridProveedor.Size = new System.Drawing.Size(320, 190);
             this.gridProveedor.TabIndex = 9;
             // 
             // proveedorLogicBindingSource
@@ -165,6 +166,7 @@
             this.btnModificar.TabIndex = 10;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnBorrar
             // 
@@ -176,12 +178,41 @@
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 15);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "CUIT/CUIL";
+            // 
+            // txtCUIT
+            // 
+            this.txtCUIT.Location = new System.Drawing.Point(78, 151);
+            this.txtCUIT.Name = "txtCUIT";
+            this.txtCUIT.Size = new System.Drawing.Size(254, 23);
+            this.txtCUIT.TabIndex = 15;
+            // 
+            // btnVer
+            // 
+            this.btnVer.Location = new System.Drawing.Point(163, 185);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(54, 23);
+            this.btnVer.TabIndex = 16;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
             // FormProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(344, 450);
+            this.Controls.Add(this.btnVer);
+            this.Controls.Add(this.txtCUIT);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.gridProveedor);
@@ -224,5 +255,8 @@
         private BindingSource proveedorLogicBindingSource;
         private Button btnModificar;
         private Button btnBorrar;
+        private Label label5;
+        private TextBox txtCUIT;
+        private Button btnVer;
     }
 }

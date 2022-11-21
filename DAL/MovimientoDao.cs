@@ -153,6 +153,36 @@ namespace DAL
             }
             return caja;
         }
+        public double TotalEntreFechas(DateTime desde, DateTime hasta)
+        {
+            double totalEntreFechas = 0;
+
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("SELECT COALESCE(SUM(IMPORTE),0) AS TOTAL FROM MOVIMIENTO WHERE MOVIMIENTO_FECHA_CREACION BETWEEN @DESDE AND @HASTA;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@DESDE", desde);
+                    miComando.Parameters.AddWithValue("@HASTA", hasta);
+
+                    using (var reader = miComando.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                totalEntreFechas = double.Parse(reader["TOTAL"].ToString());
+                            }
+                        }
+                    }
+                }
+                miConexion.Close();
+            }
+            return totalEntreFechas;
+        }
 
     }
 }

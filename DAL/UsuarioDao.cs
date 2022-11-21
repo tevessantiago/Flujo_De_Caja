@@ -74,5 +74,36 @@ namespace DAL
             }
             return usuarioId;
         }
+        public string ObtenerAdmin(string user, string pass)
+        {
+            string admin = "";
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand(
+                    "SELECT USUARIO_ADMIN FROM USUARIO WHERE USUARIO_USER=@USUARIO_USER AND USUARIO_PASS=@USUARIO_PASS;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@USUARIO_USER", user);
+                    miComando.Parameters.AddWithValue("@USUARIO_PASS", pass);
+
+                    using (var reader = miComando.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                admin = reader["USUARIO_ADMIN"].ToString();
+                            }
+                        }
+
+                    }
+                }
+                miConexion.Close();
+            }
+            return admin;
+        }
     }
 }

@@ -12,11 +12,12 @@ namespace UI
         UsuarioLogic userLogic = new UsuarioLogic();
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Usuario login = new Usuario();
-            login.User = txtUser.Text;
-            login.Pass = txtPass.Text;
+            Usuario user = new Usuario();
+            user.User = txtUser.Text;
+            user.Pass = txtPass.Text;
+            string admin = "";
 
-            bool existe = userLogic.VerificarUsuario(login);
+            bool existe = userLogic.VerificarUsuario(user);
             if (existe)
             {
                 if(!int.TryParse(userLogic.ObtenerUsuarioId(txtUser.Text, txtPass.Text).ToString(), out int usuarioId))//Vulnerable a 2 usuarios con mismo user y pass.
@@ -24,9 +25,9 @@ namespace UI
                     MessageBox.Show("Error: No se pudo obtener el usuarioId.");
                     return;
                 }
-                
+                admin = userLogic.ObtenerAdmin(txtUser.Text, txtPass.Text);
                 //Application.Run(new ConteoCaja(usuarioId)); // Qué diferencia hay?
-                ConteoCaja abrir = new ConteoCaja(usuarioId);
+                ConteoCaja abrir = new ConteoCaja(usuarioId, admin);
                 this.Hide();
                 abrir.Show();
             }

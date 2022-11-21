@@ -38,5 +38,9 @@ namespace BLL
         {
             return dao.ObtenerUsuarioId(user, pass);
         }
+        public string ObtenerAdmin(string user, string pass)
+        {
+            return dao.ObtenerAdmin(user, pass);
+        }
     }
 }

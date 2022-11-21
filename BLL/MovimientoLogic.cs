@@ -81,5 +81,11 @@ namespace BLL
         {
             return dao.CalcularCaja();
         }
+
+        public double TotalEntreFechas(DateTime desde, DateTime hasta)
+        {
+            return dao.TotalEntreFechas(desde, hasta);
+        }
+
     }
 }
