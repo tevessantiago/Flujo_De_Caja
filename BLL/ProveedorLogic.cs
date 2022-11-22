@@ -54,7 +54,7 @@ namespace BLL
             bool existe = false;
             foreach(DataRow dr in tabla.Rows) 
             {
-                if(proveedor.CUIT == dr["PROVEEDOR_NUMERO_DOCUMENTO"].ToString())
+                if(proveedor.CUIT == dr["PROVEEDOR_CUIT"].ToString())
                 {
                     existe = true;
                 }
@@ -65,6 +65,26 @@ namespace BLL
         public List<Proveedor> ObtenerProveedoresAlta()
         {
             return dao.ObtenerProveedoresAlta();
+        }
+
+        public void ModificarProveedor(Proveedor proveedor)
+        {
+            using(var trx = new TransactionScope())
+            {
+                dao.ModificarProveedor(proveedor);
+                trx.Complete();
+            }
+            
+        }
+
+        public void BajaProveedor(Proveedor proveedor)
+        {
+            proveedor.FechaBaja = DateTime.Now;
+            using (var trx = new TransactionScope())
+            {
+                dao.BajaProveedor(proveedor);
+                trx.Complete();
+            }
         }
 
     }

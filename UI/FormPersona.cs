@@ -70,17 +70,11 @@ namespace UI
                 persona.Nombre = txtNombre.Text; //Emmanuel: Asignación del nombre de la persona
                 persona.Apellido = txtApellido.Text; //Emmanuel: Asignación del apellido de la persona
                 persona.Tipo = txtTipo.Text; //Emmanuel: Asignación del Tipo de la persona
-                if (cbBajaPersona.Checked) //Emmanuel: Validación de si la Persona  es Nueva o se la da de BAJA
-                {
-                    persona.Estado = "BAJA";
-                }
-                else
-                {
-                    persona.Estado = "ALTA";
-                }
+               
 
                 perLogic.CargarPersona(persona);
                 gridPersona.DataSource = perLogic.ObtenerPersonas();
+                MessageBox.Show("La persona se ha cargado con exito");
 
                 
             }
@@ -90,7 +84,9 @@ namespace UI
             }
             finally
             {
-
+                txtNombre.Clear();
+                txtApellido.Clear();    
+                txtTipo.Clear();
             }
         }
 
@@ -102,6 +98,131 @@ namespace UI
         private void gridPersona_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbModBajaPersona.Checked)
+                {
+                    if (MessageBox.Show("Quieres modificar a esta Persona?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridPersona.DataSource != null && gridPersona.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridPersona.SelectedCells[0].Value.ToString(), out int personaId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el PersonaId como un entero.");
+                            }
+                            Persona persona = new Persona();
+                            persona.PersonaId = personaId;
+                            persona.Nombre = txtNombre.Text;
+                            persona.Apellido = txtApellido.Text;
+                            persona.Tipo = txtTipo.Text;
+                           
+
+                            perLogic.ModificarPersona(persona);
+                            MessageBox.Show("La persona se ha modificado con exito");
+                            gridPersona.DataSource = null;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la modificacion");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtTipo.Clear();
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbModBajaPersona.Checked)
+                {
+                    if (MessageBox.Show("Quieres dar de baja a esta persona?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridPersona.DataSource != null && gridPersona.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridPersona.SelectedCells[0].Value.ToString(), out int personaId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el PersonaId como un entero.");
+                            }
+
+                            Persona persona = new Persona();
+                            persona.PersonaId= personaId;
+                            perLogic.BajaPersona(persona);
+                            MessageBox.Show("La persona fue dado de baja");
+                            gridPersona.DataSource = null;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la baja");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtTipo.Clear();
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
+            }
+        }
+
+        private void gridPersona_SelectionChanged(object sender, EventArgs e)
+        {
+            if (cbModBajaPersona.Checked)
+            {
+                DataGridViewRow row = gridPersona.CurrentRow;
+                if (row == null)
+                    return;
+
+                txtNombre.Text = row.Cells["Nombre"].Value.ToString();
+                txtApellido.Text = row.Cells["Apellido"].Value.ToString();
+                txtTipo.Text = row.Cells["Tipo"].Value.ToString();
+
+            }
+            else
+            {
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtTipo.Clear();
+            }
         }
     }
 }

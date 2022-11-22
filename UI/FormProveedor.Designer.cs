@@ -35,7 +35,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbBajaProveedor = new System.Windows.Forms.CheckBox();
+            this.cbModBajaProveedor = new System.Windows.Forms.CheckBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtRubro = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
@@ -66,6 +66,7 @@
             // 
             this.menuStrip1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -111,15 +112,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Rubro";
             // 
-            // cbBajaProveedor
+            // cbModBajaProveedor
             // 
-            this.cbBajaProveedor.AutoSize = true;
-            this.cbBajaProveedor.Location = new System.Drawing.Point(12, 184);
-            this.cbBajaProveedor.Name = "cbBajaProveedor";
-            this.cbBajaProveedor.Size = new System.Drawing.Size(105, 19);
-            this.cbBajaProveedor.TabIndex = 5;
-            this.cbBajaProveedor.Text = "Baja Proveedor";
-            this.cbBajaProveedor.UseVisualStyleBackColor = true;
+            this.cbModBajaProveedor.AutoSize = true;
+            this.cbModBajaProveedor.Location = new System.Drawing.Point(12, 184);
+            this.cbModBajaProveedor.Name = "cbModBajaProveedor";
+            this.cbModBajaProveedor.Size = new System.Drawing.Size(94, 19);
+            this.cbModBajaProveedor.TabIndex = 11;
+            this.cbModBajaProveedor.Text = "Moficar/Baja";
+            this.cbModBajaProveedor.UseVisualStyleBackColor = true;
             // 
             // txtNombre
             // 
@@ -140,7 +141,7 @@
             this.btnCargar.Location = new System.Drawing.Point(223, 184);
             this.btnCargar.Name = "btnCargar";
             this.btnCargar.Size = new System.Drawing.Size(109, 23);
-            this.btnCargar.TabIndex = 8;
+            this.btnCargar.TabIndex = 9;
             this.btnCargar.Text = "Cargar";
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
@@ -150,9 +151,11 @@
             this.gridProveedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridProveedor.Location = new System.Drawing.Point(10, 214);
             this.gridProveedor.Name = "gridProveedor";
+            this.gridProveedor.RowHeadersWidth = 51;
             this.gridProveedor.RowTemplate.Height = 25;
             this.gridProveedor.Size = new System.Drawing.Size(320, 190);
             this.gridProveedor.TabIndex = 9;
+            this.gridProveedor.SelectionChanged += new System.EventHandler(this.gridProveedor_SelectionChanged);
             // 
             // proveedorLogicBindingSource
             // 
@@ -163,7 +166,7 @@
             this.btnModificar.Location = new System.Drawing.Point(11, 416);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(106, 23);
-            this.btnModificar.TabIndex = 10;
+            this.btnModificar.TabIndex = 12;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
@@ -173,8 +176,8 @@
             this.btnBorrar.Location = new System.Drawing.Point(223, 416);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(109, 23);
-            this.btnBorrar.TabIndex = 11;
-            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TabIndex = 13;
+            this.btnBorrar.Text = "Baja";
             this.btnBorrar.UseVisualStyleBackColor = true;
             this.btnBorrar.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -192,14 +195,14 @@
             this.txtCUIT.Location = new System.Drawing.Point(78, 151);
             this.txtCUIT.Name = "txtCUIT";
             this.txtCUIT.Size = new System.Drawing.Size(254, 23);
-            this.txtCUIT.TabIndex = 15;
+            this.txtCUIT.TabIndex = 8;
             // 
             // btnVer
             // 
-            this.btnVer.Location = new System.Drawing.Point(163, 185);
+            this.btnVer.Location = new System.Drawing.Point(164, 184);
             this.btnVer.Name = "btnVer";
             this.btnVer.Size = new System.Drawing.Size(54, 23);
-            this.btnVer.TabIndex = 16;
+            this.btnVer.TabIndex = 10;
             this.btnVer.Text = "Ver";
             this.btnVer.UseVisualStyleBackColor = true;
             this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
@@ -219,7 +222,7 @@
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.txtRubro);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.cbBajaProveedor);
+            this.Controls.Add(this.cbModBajaProveedor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -247,7 +250,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label2;
         private Label label3;
-        private CheckBox cbBajaProveedor;
+        private CheckBox cbModBajaProveedor;
         private TextBox txtNombre;
         private TextBox txtRubro;
         private Button btnCargar;

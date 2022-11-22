@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -34,7 +35,43 @@ namespace UI
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(cbModBajaProveedor.Checked)
+                {
+                    if (MessageBox.Show("Quieres dar de baja a este proveedor?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridProveedor.DataSource != null && gridProveedor.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridProveedor.SelectedCells[0].Value.ToString(), out int proveedorId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
+                            }
 
+                            Proveedor proveedor = new Proveedor();
+                            proveedor.ProveedorId = proveedorId;
+                            provLogic.BajaProveedor(proveedor);
+                            MessageBox.Show("El Proveedor fue dado de baja");
+                        }
+                    }                        
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la baja");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtRubro.Clear();
+                txtCUIT.Clear();
+            }
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,7 +112,7 @@ namespace UI
                 proveedor.Rubro = txtRubro.Text;
                 proveedor.CUIT = txtCUIT.Text;
                 proveedor.FechaAlta = DateTime.Today;
-                if (cbBajaProveedor.Checked)
+                if (cbModBajaProveedor.Checked)
                 {
                     proveedor.FechaBaja = DateTime.Today;
                 }
@@ -84,6 +121,7 @@ namespace UI
                     proveedor.FechaBaja = null;
                 }
                 provLogic.CargarProveedor(proveedor);
+                MessageBox.Show("El Proveedor se ha cargado con exito");
                 gridProveedor.DataSource = provLogic.ObtenerProveedores();
 
             }
@@ -93,12 +131,61 @@ namespace UI
             }
             finally
             {
+                txtNombre.Clear();
+                txtRubro.Clear();
+                txtCUIT.Clear();
 
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (cbModBajaProveedor.Checked)
+                {
+                    if (MessageBox.Show("Quieres modificar a este proveedor?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridProveedor.DataSource != null && gridProveedor.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridProveedor.SelectedCells[0].Value.ToString(), out int proveedorId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
+                            }
+                            Proveedor proveedor = new Proveedor();
+
+                            proveedor.Nombre = txtNombre.Text;
+                            proveedor.Rubro = txtRubro.Text;
+                            proveedor.CUIT = txtCUIT.Text;
+                            proveedor.FechaAlta = DateTime.Today;
+                            proveedor.ProveedorId = proveedorId;
+
+                            provLogic.ModificarProveedor(proveedor);
+                            MessageBox.Show("El proveedor se ha modificado con exito");
+                            gridProveedor.DataSource = null;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la modificacion");
+                }
+                   
+                    
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtRubro.Clear();
+                txtCUIT.Clear();
+                gridProveedor.DataSource = provLogic.ObtenerProveedores();
+            }
+            
 
         }
 
@@ -113,6 +200,28 @@ namespace UI
 
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void gridProveedor_SelectionChanged(object sender, EventArgs e)
+        {
+            if (cbModBajaProveedor.Checked)
+            {
+                DataGridViewRow row = gridProveedor.CurrentRow;
+                if (row == null)
+                    return;
+
+                txtNombre.Text = row.Cells["Nombre"].Value.ToString();
+                txtRubro.Text = row.Cells["Rubro"].Value.ToString();
+                txtCUIT.Text = row.Cells["CUIT"].Value.ToString();
+
+            }
+            else
+            {
+                txtNombre.Clear();
+                txtRubro.Clear();
+                txtCUIT.Clear();
+            }
+
         }
     }
 }

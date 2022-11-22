@@ -11,6 +11,7 @@ namespace BLL
         public void CargarPersona(Persona persona)
         {
             bool contieneNum = false;
+            persona.Estado = "ALTA";
             if(string.IsNullOrEmpty(persona.Nombre) || string.IsNullOrEmpty(persona.Apellido) || string.IsNullOrEmpty(persona.Tipo))
             {
                 throw new Exception("Todos los campos deben estar completos");
@@ -37,8 +38,6 @@ namespace BLL
             {
                 throw new Exception("El apellido no debe contener numeros");
             }
-
-
             using (var trx = new TransactionScope())
             {
                 dao.CargarPersona(persona);
@@ -55,6 +54,24 @@ namespace BLL
         public int ObtenerPersonaId(int usuarioId)
         {
             return dao.ObtenerPersonaId(usuarioId);
+        }
+
+        public void BajaPersona(Persona persona)
+        {
+            persona.Estado = "BAJA";
+            using(var trx = new TransactionScope())
+            {
+                dao.BajaPersona(persona);
+                trx.Complete();
+            }
+        }
+        public void ModificarPersona(Persona persona)
+        {
+            using (var trx = new TransactionScope())
+            {
+                dao.ModificarPersona(persona);
+                trx.Complete();
+            }
         }
     }
 }

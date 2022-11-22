@@ -36,7 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbBajaPersona = new System.Windows.Forms.CheckBox();
+            this.cbModBajaPersona = new System.Windows.Forms.CheckBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.txtTipo = new System.Windows.Forms.TextBox();
@@ -45,6 +45,7 @@
             this.personaLogicBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnVer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridPersona)).BeginInit();
@@ -119,15 +120,15 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Tipo";
             // 
-            // cbBajaPersona
+            // cbModBajaPersona
             // 
-            this.cbBajaPersona.AutoSize = true;
-            this.cbBajaPersona.Location = new System.Drawing.Point(12, 176);
-            this.cbBajaPersona.Name = "cbBajaPersona";
-            this.cbBajaPersona.Size = new System.Drawing.Size(93, 19);
-            this.cbBajaPersona.TabIndex = 5;
-            this.cbBajaPersona.Text = "Baja Persona";
-            this.cbBajaPersona.UseVisualStyleBackColor = true;
+            this.cbModBajaPersona.AutoSize = true;
+            this.cbModBajaPersona.Location = new System.Drawing.Point(12, 176);
+            this.cbModBajaPersona.Name = "cbModBajaPersona";
+            this.cbModBajaPersona.Size = new System.Drawing.Size(104, 19);
+            this.cbModBajaPersona.TabIndex = 5;
+            this.cbModBajaPersona.Text = "Modificar/Baja";
+            this.cbModBajaPersona.UseVisualStyleBackColor = true;
             // 
             // txtNombre
             // 
@@ -169,6 +170,7 @@
             this.gridPersona.Size = new System.Drawing.Size(320, 196);
             this.gridPersona.TabIndex = 10;
             this.gridPersona.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPersona_CellContentClick);
+            this.gridPersona.SelectionChanged += new System.EventHandler(this.gridPersona_SelectionChanged);
             // 
             // personaLogicBindingSource
             // 
@@ -181,8 +183,9 @@
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(109, 23);
             this.btnBorrar.TabIndex = 13;
-            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.Text = "Baja";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnModificar
             // 
@@ -192,6 +195,17 @@
             this.btnModificar.TabIndex = 12;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnVer
+            // 
+            this.btnVer.Location = new System.Drawing.Point(197, 176);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Size = new System.Drawing.Size(54, 23);
+            this.btnVer.TabIndex = 17;
+            this.btnVer.Text = "Ver";
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
             // 
             // FormPersona
             // 
@@ -199,6 +213,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(344, 450);
+            this.Controls.Add(this.btnVer);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.gridPersona);
@@ -206,7 +221,7 @@
             this.Controls.Add(this.txtTipo);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.cbBajaPersona);
+            this.Controls.Add(this.cbModBajaPersona);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -236,7 +251,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private CheckBox cbBajaPersona;
+        private CheckBox cbModBajaPersona;
         private TextBox txtNombre;
         private TextBox txtApellido;
         private TextBox txtTipo;
@@ -245,5 +260,6 @@
         private BindingSource personaLogicBindingSource;
         private Button btnBorrar;
         private Button btnModificar;
+        private Button btnVer;
     }
 }

@@ -95,5 +95,49 @@ namespace DAL
             }
             return personaId;
         }
+        public void BajaPersona(Persona persona)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PERSONA SET "
+                    + "PERSONA_ESTADO=@PERSONA_ESTADO "
+                    + "WHERE PERSONA_ID=@PERSONA_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", persona.PersonaId);
+                    miComando.Parameters.AddWithValue("@PERSONA_ESTADO", persona.Estado);
+
+                    miComando.ExecuteNonQuery();
+
+                }
+                miConexion.Close();
+            }
+        }
+        public void ModificarPersona(Persona persona)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PERSONA SET "
+                    + "PERSONA_NOMBRE=@PERSONA_NOMBRE, "
+                    + "PERSONA_APELLIDO=@PERSONA_APELLIDO, "
+                    + "PERSONA_TIPO=@PERSONA_TIPO "
+                    + "WHERE PERSONA_ID=@PERSONA_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", persona.PersonaId);
+                    miComando.Parameters.AddWithValue("@PERSONA_NOMBRE", persona.Nombre);
+                    miComando.Parameters.AddWithValue("@PERSONA_APELLIDO", persona.Apellido);
+                    miComando.Parameters.AddWithValue("@PERSONA_TIPO", persona.Tipo);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }
+        }
+
     }
 }

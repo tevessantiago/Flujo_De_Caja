@@ -126,5 +126,49 @@ namespace DAL
             return proveedores;
         }
 
+        public void ModificarProveedor(Proveedor proveedor)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PROVEEDOR SET "
+                    + "PROVEEDOR_NOMBRE=@PROVEEDOR_NOMBRE, "
+                    + "PROVEEDOR_RUBRO=@PROVEEDOR_RUBRO, "
+                    + "PROVEEDOR_CUIT=@PROVEEDOR_CUIT "
+                    + "WHERE PROVEEDOR_ID=@PROVEEDOR_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_ID", proveedor.ProveedorId);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_NOMBRE", proveedor.Nombre);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_RUBRO", proveedor.Rubro);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_CUIT", proveedor.CUIT);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }
+        }
+
+        public void BajaProveedor(Proveedor proveedor)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PROVEEDOR SET "
+                    + "PROVEEDOR_FECHA_BAJA=@PROVEEDOR_FECHA_BAJA "
+                    + "WHERE PROVEEDOR_ID=@PROVEEDOR_ID;" , miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_ID", proveedor.ProveedorId);
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_FECHA_BAJA", proveedor.FechaBaja);
+
+                    miComando.ExecuteNonQuery();
+
+                }
+                miConexion.Close();
+            }
+        }
     }
 }
