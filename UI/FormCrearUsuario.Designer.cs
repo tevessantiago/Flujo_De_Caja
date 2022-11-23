@@ -136,6 +136,7 @@
             this.cbPersona.Name = "cbPersona";
             this.cbPersona.Size = new System.Drawing.Size(204, 23);
             this.cbPersona.TabIndex = 10;
+            this.cbPersona.DropDown += new System.EventHandler(this.cbPersona_DropDown);
             // 
             // btnCrearUser
             // 

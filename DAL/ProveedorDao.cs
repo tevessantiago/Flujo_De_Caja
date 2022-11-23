@@ -93,38 +93,7 @@ namespace DAL
             return tabla;
 
         }
-        public List<Proveedor> ObtenerProveedoresAlta()
-        {
-            List<Proveedor> proveedores = new List<Proveedor>();
-
-            using (var miConexion = new SqlConnection(connectionString))
-            {
-                miConexion.Open();
-
-                using (var miComando = new SqlCommand(
-                    "SELECT PROVEEDOR_NOMBRE FROM PROVEEDOR WHERE PROVEEDOR_FECHA_BAJA IS NULL;", miConexion))
-                {
-                    miComando.CommandType = System.Data.CommandType.Text;
-
-                    using (var reader = miComando.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                proveedores.Add(new Proveedor
-                                {
-                                    Nombre = reader["PROVEEDOR_NOMBRE"].ToString(),                                   
-                                });
-                            }
-                        }
-                    }
-
-                }
-                miConexion.Close();
-            }
-            return proveedores;
-        }
+  
 
         public void ModificarProveedor(Proveedor proveedor)
         {

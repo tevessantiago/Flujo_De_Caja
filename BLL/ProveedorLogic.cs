@@ -64,7 +64,17 @@ namespace BLL
         }
         public List<Proveedor> ObtenerProveedoresAlta()
         {
-            return dao.ObtenerProveedoresAlta();
+            List<Proveedor> lista = dao.ObtenerProveedores();
+            List<Proveedor> nuevaLista = new List<Proveedor>();
+            foreach(var prov in lista)
+            {
+                if(!prov.FechaBaja.HasValue)
+                {
+                    nuevaLista.Add(prov);
+                }
+            }
+
+            return nuevaLista;
         }
 
         public void ModificarProveedor(Proveedor proveedor)

@@ -51,6 +51,7 @@ namespace UI
                         persona.PersonaId = personaId;
                         usuario.UsuarioId = userLogic.CrearUsuario(usuario);
                         personaLogic.InsertarUsuarioId(usuario, persona);
+                        
                     }
                 }
                 else
@@ -71,6 +72,7 @@ namespace UI
             {
                 txtUser.Clear();
                 txtPass.Clear();
+
             }
         }
 
@@ -81,7 +83,7 @@ namespace UI
                 this.TopMost = true;
                 cbPersona.ValueMember = "PersonaId";
                 cbPersona.DisplayMember = "Nombre";
-                cbPersona.DataSource = personaLogic.ObtenerPersonas();
+                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();
                 cbPersona.SelectedIndex = 0;
             }
             catch (Exception)
@@ -115,6 +117,18 @@ namespace UI
         private void flowLayoutPanel1_MouseUp(object sender, MouseEventArgs e)
         {
             mov = 0;
+        }
+
+        private void cbPersona_DropDown(object sender, EventArgs e)
+        {
+            try
+            {
+                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();// Cambie para que me traiga solo los que esten de alta
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: No se pudo obtener proveedores: " + ex.Message);
+            }
         }
     }
 }

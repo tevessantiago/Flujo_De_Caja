@@ -81,5 +81,19 @@ namespace BLL
                 trx.Complete();
             }
         }
+
+        public List<Persona> ObtenerPersonasinUsuario()
+        {
+            List<Persona> lista = dao.ObtenerPersonas();
+            List<Persona> nuevaLista = new List<Persona>();
+            foreach(var per in lista)
+            {
+                if(per.UsuarioId == 0)
+                {
+                    nuevaLista.Add(per);
+                }
+            }
+            return nuevaLista;
+        }
     }
 }
