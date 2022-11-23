@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BLL
 {
@@ -41,6 +42,15 @@ namespace BLL
         public string ObtenerAdmin(string user, string pass)
         {
             return dao.ObtenerAdmin(user, pass);
+        }
+        public int CrearUsuario(Usuario usuario)
+        {
+            using(var trx = new TransactionScope())
+            {
+                return dao.CrearUsuario(usuario);
+                trx.Complete();
+            }
+            
         }
     }
 }

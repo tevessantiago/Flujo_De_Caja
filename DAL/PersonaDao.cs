@@ -53,6 +53,7 @@ namespace DAL
                                 personas.Add(new Persona
                                 {
                                     PersonaId = int.Parse(reader["PERSONA_ID"].ToString()),
+                                    UsuarioId = (int.TryParse(reader["USUARIO_ID"].ToString(), out int usuarioid)) ? usuarioid : 0,
                                     Nombre = reader["PERSONA_NOMBRE"].ToString(),
                                     Apellido = reader["PERSONA_APELLIDO"].ToString(),
                                     Tipo = reader["PERSONA_TIPO"].ToString(),
@@ -132,6 +133,27 @@ namespace DAL
                     miComando.Parameters.AddWithValue("@PERSONA_NOMBRE", persona.Nombre);
                     miComando.Parameters.AddWithValue("@PERSONA_APELLIDO", persona.Apellido);
                     miComando.Parameters.AddWithValue("@PERSONA_TIPO", persona.Tipo);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }
+        }
+
+        public void InsertarUsuarioId(Usuario usuario, Persona persona)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PERSONA SET "
+                    + "USUARIO_ID=@USUARIO_ID "
+                    + "WHERE PERSONA_ID=@PERSONA_ID ;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@USUARIO_ID", usuario.UsuarioId);
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", persona.PersonaId);
 
                     miComando.ExecuteNonQuery();
                 }

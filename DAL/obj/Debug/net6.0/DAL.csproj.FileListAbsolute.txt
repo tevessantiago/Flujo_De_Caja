@@ -103,3 +103,18 @@ C:\Users\teves\source\repos\Flujo_De_Caja\DAL\obj\Debug\net6.0\DAL.dll
 C:\Users\teves\source\repos\Flujo_De_Caja\DAL\obj\Debug\net6.0\refint\DAL.dll
 C:\Users\teves\source\repos\Flujo_De_Caja\DAL\obj\Debug\net6.0\DAL.pdb
 C:\Users\teves\source\repos\Flujo_De_Caja\DAL\obj\Debug\net6.0\ref\DAL.dll
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\bin\Debug\net6.0\DAL.deps.json
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\bin\Debug\net6.0\DAL.dll
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\bin\Debug\net6.0\DAL.pdb
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\bin\Debug\net6.0\Entidades.dll
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\bin\Debug\net6.0\Entidades.pdb
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.csproj.CopyComplete
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.dll
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\refint\DAL.dll
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\DAL.pdb
+C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\DAL\obj\Debug\net6.0\ref\DAL.dll

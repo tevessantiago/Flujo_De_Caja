@@ -224,5 +224,18 @@ namespace UI
                 txtTipo.Clear();
             }
         }
+
+        private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ((Application.OpenForms["FormCrearUsuario"] as FormCrearUsuario) != null)
+            {
+                MessageBox.Show("La ventana de Crear Usuario ya se encuentra abierta.");
+            }
+            else
+            {
+                FormCrearUsuario formCrearUsuario = new FormCrearUsuario();
+                formCrearUsuario.Show();
+            }
+        }
     }
 }

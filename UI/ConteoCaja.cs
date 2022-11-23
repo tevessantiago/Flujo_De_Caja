@@ -186,7 +186,7 @@ namespace UI
 
         private void comboMovimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!comboMovimiento.SelectedItem.ToString().Equals("Pago a Proveedor"))
+            if (!comboMovimiento.SelectedItem.ToString().Equals("Pago a Proveedor"))
             {
                 if(comboProveedor.SelectedIndex != -1) //Por seguridad, en caso de que comboProveedor no tenga valores.
                 {

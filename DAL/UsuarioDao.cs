@@ -105,5 +105,40 @@ namespace DAL
             }
             return admin;
         }
+
+        public int CrearUsuario(Usuario usuario)
+        {
+            int usuarioId = 0;
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+                
+                using (var miComando = new SqlCommand("INSERT INTO USUARIO (USUARIO_USER, USUARIO_PASS, USUARIO_ADMIN)"
+                    + " VALUES (@USUARIO_USER, @USUARIO_PASS, @USUARIO_ADMIN); "
+                    + "SELECT CAST(scope_identity() AS int) AS ID ", miConexion))
+                {
+                    miComando.CommandType=System.Data.CommandType.Text;
+
+                    miComando.Parameters.AddWithValue("@USUARIO_USER", usuario.User);
+                    miComando.Parameters.AddWithValue("@USUARIO_PASS", usuario.Pass);
+                    miComando.Parameters.AddWithValue("@USUARIO_ADMIN", usuario.Admin);
+
+                    using (var reader = miComando.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                usuarioId = int.Parse(reader["ID"].ToString());
+                            }
+                        }
+                    }
+                }
+                miConexion.Close();
+            }
+            return usuarioId;
+        }
+
+        
     }
 }
