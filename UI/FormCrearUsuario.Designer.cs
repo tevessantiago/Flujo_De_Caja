@@ -131,6 +131,8 @@
             // 
             // cbPersona
             // 
+            this.cbPersona.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPersona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPersona.FormattingEnabled = true;
             this.cbPersona.Location = new System.Drawing.Point(138, 105);
             this.cbPersona.Name = "cbPersona";

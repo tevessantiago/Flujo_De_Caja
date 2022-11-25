@@ -26,6 +26,10 @@ namespace BLL
             {
                 movimiento.Importe *= -1; //Se convierte el importe a negativo.
             }
+            if (CalcularCaja() + movimiento.Importe < 0)
+            {
+                throw new Exception("Error: No alcanza el dinero para realizar el movimiento.");
+            }
 
             movimiento.PersonaId = personaId;
 

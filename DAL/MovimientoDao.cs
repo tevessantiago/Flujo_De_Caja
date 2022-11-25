@@ -11,6 +11,7 @@ namespace DAL
 
         public int CargarMovimiento(Movimiento movimiento)
         {
+            int movId = 0;
             using (var miConexion = new SqlConnection(connectionString))
             {
                 miConexion.Open();
@@ -30,10 +31,11 @@ namespace DAL
                     miComando.Parameters.AddWithValue("@MOVIMIENTO_FECHA_ACT", movimiento.FechaActualizacion);
                     miComando.Parameters.AddWithValue("@MOVIMIENTO_COMENTARIO", movimiento.Comentario);
 
-                    return (int)miComando.ExecuteScalar();
+                    movId = (int)miComando.ExecuteScalar();
                 }
-                miConexion.Close(); //Está quedando la conexión abierta?
+                miConexion.Close();
             }
+            return movId;
         }
 
         public List<Movimiento> ObtenerMovimientos()

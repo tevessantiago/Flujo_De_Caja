@@ -84,7 +84,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(259, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(139, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,6 +176,7 @@
             this.gridPersona.Location = new System.Drawing.Point(12, 213);
             this.gridPersona.Name = "gridPersona";
             this.gridPersona.RowTemplate.Height = 25;
+            this.gridPersona.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridPersona.Size = new System.Drawing.Size(320, 196);
             this.gridPersona.TabIndex = 10;
             this.gridPersona.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridPersona_CellContentClick);

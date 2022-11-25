@@ -263,14 +263,14 @@
             // 
             this.dtpDesde.Location = new System.Drawing.Point(678, 76);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(200, 23);
+            this.dtpDesde.Size = new System.Drawing.Size(226, 23);
             this.dtpDesde.TabIndex = 17;
             // 
             // dtpHasta
             // 
             this.dtpHasta.Location = new System.Drawing.Point(678, 124);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(200, 23);
+            this.dtpHasta.Size = new System.Drawing.Size(226, 23);
             this.dtpHasta.TabIndex = 18;
             // 
             // label6
@@ -305,16 +305,15 @@
             // 
             this.lblSumaTotal.AutoSize = true;
             this.lblSumaTotal.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSumaTotal.Location = new System.Drawing.Point(933, 159);
+            this.lblSumaTotal.Location = new System.Drawing.Point(879, 163);
             this.lblSumaTotal.Name = "lblSumaTotal";
-            this.lblSumaTotal.Size = new System.Drawing.Size(25, 30);
+            this.lblSumaTotal.Size = new System.Drawing.Size(0, 30);
             this.lblSumaTotal.TabIndex = 22;
-            this.lblSumaTotal.Text = "0";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(813, 171);
+            this.label9.Location = new System.Drawing.Point(770, 171);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 15);
             this.label9.TabIndex = 23;

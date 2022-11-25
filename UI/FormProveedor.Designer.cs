@@ -153,6 +153,7 @@
             this.gridProveedor.Name = "gridProveedor";
             this.gridProveedor.RowHeadersWidth = 51;
             this.gridProveedor.RowTemplate.Height = 25;
+            this.gridProveedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridProveedor.Size = new System.Drawing.Size(320, 190);
             this.gridProveedor.TabIndex = 9;
             this.gridProveedor.SelectionChanged += new System.EventHandler(this.gridProveedor_SelectionChanged);

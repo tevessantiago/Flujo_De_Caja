@@ -1,11 +1,6 @@
 ﻿using DAL;
 using Entidades;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace BLL
@@ -45,12 +40,14 @@ namespace BLL
         }
         public int CrearUsuario(Usuario usuario)
         {
-            using(var trx = new TransactionScope())
+            int usuarioId = 0;
+
+            using (var trx = new TransactionScope())
             {
-                return dao.CrearUsuario(usuario);
+                usuarioId = dao.CrearUsuario(usuario);
                 trx.Complete();
             }
-            
+            return usuarioId;
         }
     }
 }

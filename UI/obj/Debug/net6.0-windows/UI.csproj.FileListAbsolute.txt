@@ -278,3 +278,4 @@ C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\UI\obj\Debug\net6.
 C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\UI\obj\Debug\net6.0-windows\UI.pdb
 C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\UI\obj\Debug\net6.0-windows\UI.genruntimeconfig.cache
 C:\Users\nicom\Documents\GitHub\Flujo_De_Caja - crear usuario\UI\obj\Debug\net6.0-windows\ref\UI.dll
+C:\Users\teves\source\repos\Flujo_De_Caja\UI\obj\Debug\net6.0-windows\UI.FormCrearUsuario.resources

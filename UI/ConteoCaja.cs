@@ -27,7 +27,7 @@ namespace UI
         {
 
             try
-            {                
+            {
                 gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
                 gridCaja.ClearSelection();
                 comboProveedor.ValueMember = "ProveedorId";
@@ -154,10 +154,13 @@ namespace UI
             {
                 DateTime desde, hasta;
 
-                desde = dtpDesde.Value;
-                hasta = dtpHasta.Value;
+                TimeSpan tsDesde = new TimeSpan(00, 00, 00);
+                TimeSpan tsHasta = new TimeSpan(23, 59, 59);
 
-                lblSumaTotal.Text = movimientoLogic.TotalEntreFechas(desde, hasta).ToString();
+                desde = dtpDesde.Value.Date + tsDesde;
+                hasta = dtpHasta.Value.Date + tsHasta;
+
+                lblSumaTotal.Text = "$" + movimientoLogic.TotalEntreFechas(desde, hasta).ToString();
             }
             catch (Exception ex)
             {

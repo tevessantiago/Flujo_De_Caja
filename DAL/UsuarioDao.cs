@@ -1,12 +1,7 @@
 ﻿using Entidades;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -57,18 +52,7 @@ namespace DAL
                         adapter.Fill(dataSet);
 
                         usuarioId = int.Parse(dataSet.Tables[0].Rows[0]["USUARIO_ID"].ToString());//Ver de meter alguna medida de seguridad.
-                    }
-
-                    /*using(var reader = miComando.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                usuarioId = int.Parse(reader["USUARIO_ID"].ToString()); //Se queda con el último, tengo que buscar una forma más óptima.
-                            }
-                        }
-                    }*/
+                    }                    
                 }
                 miConexion.Close();
             }
@@ -115,7 +99,7 @@ namespace DAL
                 
                 using (var miComando = new SqlCommand("INSERT INTO USUARIO (USUARIO_USER, USUARIO_PASS, USUARIO_ADMIN)"
                     + " VALUES (@USUARIO_USER, @USUARIO_PASS, @USUARIO_ADMIN); "
-                    + "SELECT CAST(scope_identity() AS int) AS ID ", miConexion))
+                    + "SELECT CAST(scope_identity() AS int);", miConexion))
                 {
                     miComando.CommandType=System.Data.CommandType.Text;
 
@@ -123,16 +107,7 @@ namespace DAL
                     miComando.Parameters.AddWithValue("@USUARIO_PASS", usuario.Pass);
                     miComando.Parameters.AddWithValue("@USUARIO_ADMIN", usuario.Admin);
 
-                    using (var reader = miComando.ExecuteReader())
-                    {
-                        if (reader.HasRows)
-                        {
-                            while (reader.Read())
-                            {
-                                usuarioId = int.Parse(reader["ID"].ToString());
-                            }
-                        }
-                    }
+                    usuarioId = (int)miComando.ExecuteScalar();
                 }
                 miConexion.Close();
             }

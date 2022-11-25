@@ -1,14 +1,5 @@
 ﻿using BLL;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace UI
 {
@@ -57,11 +48,7 @@ namespace UI
                 else
                 {
                     MessageBox.Show("Debe seleccionar SI o NO");
-                }
-                
-
-                    
-
+                }                                    
             }
             catch (Exception ex)
             {
@@ -72,7 +59,7 @@ namespace UI
             {
                 txtUser.Clear();
                 txtPass.Clear();
-
+                actualizarComboPersona();
             }
         }
 
@@ -80,11 +67,9 @@ namespace UI
         {
             try
             {
+                actualizarComboPersona();
                 this.TopMost = true;
-                cbPersona.ValueMember = "PersonaId";
-                cbPersona.DisplayMember = "Nombre";
-                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();
-                cbPersona.SelectedIndex = 0;
+                
             }
             catch (Exception)
             {
@@ -128,6 +113,22 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show("Error: No se pudo obtener proveedores: " + ex.Message);
+            }
+        }
+
+        private void actualizarComboPersona()
+        {
+            if (personaLogic.ObtenerPersonasinUsuario().Count() > 0)
+            {
+                cbPersona.ValueMember = "PersonaId";
+                cbPersona.DisplayMember = "Nombre";
+                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();
+                cbPersona.SelectedIndex = 0;
+            }
+            else
+            {
+                cbPersona.SelectedIndex = -1;
+                cbPersona.Enabled = false;
             }
         }
     }
