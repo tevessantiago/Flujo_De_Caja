@@ -32,8 +32,10 @@ namespace BLL
             }
 
             movimiento.PersonaId = personaId;
+            movimiento.FechaCreacion = DateTime.Now;
+            movimiento.FechaActualizacion = DateTime.Now;
 
-            using(var trx = new TransactionScope())
+            using (var trx = new TransactionScope())
             {
                 int movimientoID = dao.CargarMovimiento(movimiento);
 
@@ -72,6 +74,7 @@ namespace BLL
             }
 
             movimiento.PersonaId = personaId;
+            movimiento.FechaActualizacion = DateTime.Now;
 
             using (var trx = new TransactionScope())
             {

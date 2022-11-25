@@ -21,11 +21,9 @@ namespace UI
             this.usuarioId = usuarioId;
             this.admin = admin;
         }
-
         
         private void ConteoCaja_Load(object sender, EventArgs e)
         {
-
             try
             {
                 gridCaja.DataSource = movimientoLogic.ObtenerMovimientos();
@@ -39,8 +37,7 @@ namespace UI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
+            }            
         }
 
         private void btnCargar_Click(object sender, EventArgs e)
@@ -60,9 +57,7 @@ namespace UI
 
                 movimiento.ProveedorId = proveedorId;
                 movimiento.Tipo = comboMovimiento.Text;
-                movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;
-                movimiento.FechaCreacion = DateTime.Now;
-                movimiento.FechaActualizacion = DateTime.Now;
+                movimiento.Importe = importe; //Santi: Por default, redondea hacia abajo. Ej: 500.575 = 500.57; 500.576 = 500.58;                                
                 movimiento.Comentario = richTextBox1.Text;
 
                 movimientoLogic.CargarMovimiento(movimiento, comboProveedor.Text, this.usuarioId);
@@ -164,15 +159,13 @@ namespace UI
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
             finally
             {
                 dtpDesde.Value = DateTime.Now;
                 dtpHasta.Value = DateTime.Now;  
-            }
-            
+            }            
         }
 
         private void ActualizarLabelCaja()
@@ -214,7 +207,6 @@ namespace UI
                     {
                         throw new Exception("Error: No se pudo obtener el MovimientoId como un entero.");
                     }
-
                     movimientoLogic.BorrarMovimiento(movimientoId);                    
                 }
                 else
@@ -253,8 +245,7 @@ namespace UI
 
                     movimiento.ProveedorId = proveedorId;
                     movimiento.Tipo = comboMovimiento.Text;
-                    movimiento.Comentario = richTextBox1.Text;
-                    movimiento.FechaActualizacion = DateTime.Now;
+                    movimiento.Comentario = richTextBox1.Text;                    
                     movimiento.MovimientoId = movimientoId;
 
                     movimientoLogic.ModificarMovimiento(movimiento, comboProveedor.Text, this.usuarioId);
@@ -262,8 +253,7 @@ namespace UI
                 else
                 {
                     throw new Exception("Por favor, seleccione un registro.");
-                }
-                
+                }                
             }
             catch(Exception ex)
             {
@@ -292,7 +282,6 @@ namespace UI
             {
                 MessageBox.Show("Error: No se pudo obtener proveedores: " + ex.Message);
             }
-
         }
     }
 }
