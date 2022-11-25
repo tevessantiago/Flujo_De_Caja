@@ -41,7 +41,7 @@ namespace BLL
         public int CrearUsuario(Usuario usuario)
         {
             int usuarioId = 0;
-
+            usuario.Admin = "N";
             using (var trx = new TransactionScope())
             {
                 usuarioId = dao.CrearUsuario(usuario);

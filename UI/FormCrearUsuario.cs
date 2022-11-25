@@ -18,7 +18,7 @@ namespace UI
         {
             try
             {
-                if(rbSi.Checked || rbNo.Checked)
+                if(personaLogic.ObtenerPersonasinUsuario().Count != 0)
                 {
                     if (MessageBox.Show("Quieres crear este Usuario?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -31,24 +31,16 @@ namespace UI
 
                         usuario.User = txtUser.Text;
                         usuario.Pass = txtPass.Text;
-                        if (rbSi.Checked)
-                        {
-                            usuario.Admin = "Y";
-                        }
-                        if (rbNo.Checked)
-                        {
-                            usuario.Admin = "N";
-                        }
-                        persona.PersonaId = personaId;
-                        usuario.UsuarioId = userLogic.CrearUsuario(usuario);
-                        personaLogic.InsertarUsuarioId(usuario, persona);
-                        
+                        int usuarioId = userLogic.CrearUsuario(usuario);
+                        personaLogic.InsertarUsuarioId(usuarioId, personaId);
+
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Debe seleccionar SI o NO");
-                }                                    
+                    MessageBox.Show("No hay personas para generar un Usuario");
+                }
+                                                   
             }
             catch (Exception ex)
             {
@@ -71,10 +63,10 @@ namespace UI
                 this.TopMost = true;
                 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -108,11 +100,11 @@ namespace UI
         {
             try
             {
-                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();// Cambie para que me traiga solo los que esten de alta
+                cbPersona.DataSource = personaLogic.ObtenerPersonasinUsuario();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: No se pudo obtener proveedores: " + ex.Message);
+                MessageBox.Show("Error: No se pudo obtener personas: " + ex.Message);
             }
         }
 

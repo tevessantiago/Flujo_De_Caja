@@ -73,11 +73,11 @@ namespace BLL
                 trx.Complete();
             }
         }
-        public void InsertarUsuarioId(Usuario usuario, Persona persona)
+        public void InsertarUsuarioId(int usuarioId, int personaId)
         {
             using (var trx = new TransactionScope())
             {
-                dao.InsertarUsuarioId(usuario, persona);
+                dao.InsertarUsuarioId(usuarioId, personaId);
                 trx.Complete();
             }
         }

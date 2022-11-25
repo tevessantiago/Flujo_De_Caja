@@ -140,7 +140,7 @@ namespace DAL
             }
         }
 
-        public void InsertarUsuarioId(Usuario usuario, Persona persona)
+        public void InsertarUsuarioId(int usuarioId, int personaId)
         {
             using (var miConexion = new SqlConnection(connectionString))
             {
@@ -152,8 +152,8 @@ namespace DAL
                 {
                     miComando.CommandType = System.Data.CommandType.Text;
 
-                    miComando.Parameters.AddWithValue("@USUARIO_ID", usuario.UsuarioId);
-                    miComando.Parameters.AddWithValue("@PERSONA_ID", persona.PersonaId);
+                    miComando.Parameters.AddWithValue("@USUARIO_ID", usuarioId);
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", personaId);
 
                     miComando.ExecuteNonQuery();
                 }

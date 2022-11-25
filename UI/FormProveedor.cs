@@ -147,7 +147,6 @@ namespace UI
                             proveedor.Nombre = txtNombre.Text;
                             proveedor.Rubro = txtRubro.Text;
                             proveedor.CUIT = txtCUIT.Text;
-                            proveedor.FechaAlta = DateTime.Today;
                             proveedor.ProveedorId = proveedorId;
 
                             provLogic.ModificarProveedor(proveedor);
