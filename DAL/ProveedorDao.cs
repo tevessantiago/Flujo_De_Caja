@@ -139,5 +139,26 @@ namespace DAL
                 miConexion.Close();
             }
         }
+
+        public void RecuperarProveedor(Proveedor proveedor)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PROVEEDOR SET "
+                    + "PROVEEDOR_FECHA_BAJA = NULL "
+                    + " WHERE PROVEEDOR_ID=@PROVEEDOR_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PROVEEDOR_ID", proveedor.ProveedorId);
+
+                    miComando.ExecuteNonQuery();
+
+                }
+                miConexion.Close();
+            }
+
+        }
     }
 }

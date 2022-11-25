@@ -161,5 +161,26 @@ namespace DAL
             }
         }
 
+        public void RecuperarPersona(Persona persona)
+        {
+            using (var miConexion = new SqlConnection(connectionString))
+            {
+                miConexion.Open();
+
+                using (var miComando = new SqlCommand("UPDATE PERSONA SET "
+                    + "PERSONA_ESTADO=@PERSONA_ESTADO "
+                    + "WHERE PERSONA_ID=@PERSONA_ID;", miConexion))
+                {
+                    miComando.CommandType = System.Data.CommandType.Text;
+                    miComando.Parameters.AddWithValue("@PERSONA_ID", persona.PersonaId);
+                    miComando.Parameters.AddWithValue("@PERSONA_ESTADO", persona.Estado);
+
+                    miComando.ExecuteNonQuery();
+                }
+                miConexion.Close();
+            }
+
+        }
+
     }
 }

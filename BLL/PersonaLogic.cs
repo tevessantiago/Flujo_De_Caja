@@ -95,5 +95,14 @@ namespace BLL
             }
             return nuevaLista;
         }
+        public void RecuperarPersona(Persona persona)
+        {
+            persona.Estado = "ALTA";
+            using (var trx = new TransactionScope())
+            {
+                dao.RecuperarPersona(persona);
+                trx.Complete();
+            }
+        }
     }
 }

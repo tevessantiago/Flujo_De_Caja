@@ -42,6 +42,7 @@ namespace UI
                             proveedor.ProveedorId = proveedorId;
                             provLogic.BajaProveedor(proveedor);
                             MessageBox.Show("El Proveedor fue dado de baja");
+                            gridProveedor.DataSource = null;
                         }
                     }                        
                 }
@@ -61,6 +62,7 @@ namespace UI
                 txtNombre.Clear();
                 txtRubro.Clear();
                 txtCUIT.Clear();
+                gridProveedor.DataSource = provLogic.ObtenerProveedores();
             }
         }
 
@@ -211,6 +213,50 @@ namespace UI
                 txtCUIT.Clear();
             }
 
+        }
+
+        private void btnRecuperar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (cbModBajaProveedor.Checked)
+                {
+                    if (MessageBox.Show("Quieres recuperar a este proveedor?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridProveedor.DataSource != null && gridProveedor.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridProveedor.SelectedCells[0].Value.ToString(), out int proveedorId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el ProveedorId como un entero.");
+                            }
+
+                            Proveedor proveedor = new Proveedor();
+                            proveedor.ProveedorId = proveedorId;
+                            provLogic.RecuperarProveedor(proveedor);
+                            MessageBox.Show("El Proveedor fue recuperado");
+                            gridProveedor.DataSource = null;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la baja");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtRubro.Clear();
+                txtCUIT.Clear();
+                gridProveedor.DataSource = provLogic.ObtenerProveedores();
+            }
         }
     }
 }

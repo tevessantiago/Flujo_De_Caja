@@ -72,9 +72,9 @@ namespace UI
                 persona.Tipo = txtTipo.Text; //Emmanuel: Asignación del Tipo de la persona
                
 
-                perLogic.CargarPersona(persona);
-                gridPersona.DataSource = perLogic.ObtenerPersonas();
+                perLogic.CargarPersona(persona);                
                 MessageBox.Show("La persona se ha cargado con exito");
+                gridPersona.DataSource = null;
 
                 
             }
@@ -87,6 +87,7 @@ namespace UI
                 txtNombre.Clear();
                 txtApellido.Clear();    
                 txtTipo.Clear();
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
             }
         }
 
@@ -235,6 +236,49 @@ namespace UI
             {
                 FormCrearUsuario formCrearUsuario = new FormCrearUsuario();
                 formCrearUsuario.Show();
+            }
+        }
+
+        private void btnRecuperar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbModBajaPersona.Checked)
+                {
+                    if (MessageBox.Show("Quieres recuperar a esta persona?", "Message", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        if (gridPersona.DataSource != null && gridPersona.SelectedCells.Count > 0)
+                        {
+                            if (!int.TryParse(gridPersona.SelectedCells[0].Value.ToString(), out int personaId))
+                            {
+                                throw new Exception("Error: No se pudo obtener el PersonaId como un entero.");
+                            }
+
+                            Persona persona = new Persona();
+                            persona.PersonaId = personaId;
+                            perLogic.RecuperarPersona(persona);
+                            MessageBox.Show("La persona fue recuperada");
+                            gridPersona.DataSource = null;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe marcar Modificara/Baja para realizar la baja");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtTipo.Clear();
+                gridPersona.DataSource = perLogic.ObtenerPersonas();
             }
         }
     }

@@ -96,6 +96,15 @@ namespace BLL
                 trx.Complete();
             }
         }
+        public void RecuperarProveedor(Proveedor proveedor)
+        {
+            
+            using (var trx = new TransactionScope())
+            {
+                dao.RecuperarProveedor(proveedor);
+                trx.Complete();
+            }
+        }
 
     }
 }
